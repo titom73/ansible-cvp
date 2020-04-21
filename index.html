@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        <meta name="author" content="Arista Ansible Team">
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Arista Cloudvision ansible collection</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Arista Cloudvision ansible collection</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Roles documentation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="roles/dhcp_configuration/" class="dropdown-item">DHCP Configuration</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Modules documentation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="docs/module_docs/cv_facts.rst/" class="dropdown-item">Module cv_facts</a>
+</li>
+                                    
+<li>
+    <a href="docs/module_docs/cv_configlet.rst/" class="dropdown-item">Module cv_configlet</a>
+</li>
+                                    
+<li>
+    <a href="docs/module_docs/cv_container.rst/" class="dropdown-item">Module cv_container</a>
+</li>
+                                    
+<li>
+    <a href="docs/module_docs/cv_device.rst/" class="dropdown-item">Module cv_device</a>
+</li>
+                                    
+<li>
+    <a href="docs/module_docs/cv_tasks.rst.md" class="dropdown-item">Module cv_tasks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="contributing.md" class="dropdown-item">Contribution Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="roles/dhcp_configuration/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#ansible-modules-for-arista-cloudvision-platform" class="nav-link">Ansible Modules for Arista CloudVision Platform</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="ansible-modules-for-arista-cloudvision-platform">Ansible Modules for Arista CloudVision Platform<a class="headerlink" href="#ansible-modules-for-arista-cloudvision-platform" title="Permanent link">#</a></h2>
+<h3 id="about">About<a class="headerlink" href="#about" title="Permanent link">#</a></h3>
+<p><a href="https://www.arista.com/">Arista Networks</a> supports Ansible for managing devices running the EOS operating system through <a href="https://www.arista.com/en/products/eos/eos-cloudvision">CloudVision platform (CVP)</a>. This roles includes a set of ansible modules that perform specific configuration tasks on CVP server. These tasks include: collecting facts, managing configlets, containers, build provisionning topology and running tasks.</p>
+<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
+<p><strong>Arista CloudVision:</strong></p>
+<ul>
+<li>CloudVision 2018.2.5 or later</li>
+</ul>
+<p><strong>Python:</strong></p>
+<ul>
+<li>Python 3.6.8 or later</li>
+</ul>
+<p><strong>Additional Python Libraries required:</strong></p>
+<ul>
+<li>requests &gt;= <code>2.22.0</code></li>
+<li>treelib version <code>1.5.5</code> or later</li>
+</ul>
+<p><strong>Supported Ansible Versions:</strong></p>
+<pre><code>ansible 2.9 or later
+</code></pre>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>pip install requests&gt;<span class="o">=</span><span class="m">2</span>.22.0
+pip install treelib&gt;<span class="o">=</span><span class="m">1</span>.5.5
+</code></pre></div>
+
+<p>Ansible galaxy hosts all stable version of this collection. Installation from ansible-galaxy is the most convenient approach for consuming <code>arista.cvp</code> content</p>
+<div class="highlight"><pre><span></span><code>$ ansible-galaxy collection install arista.cvp
+Process install dependency map
+Starting collection install process
+Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1">&#39;~/.ansible/collections/ansible_collections/arista/cvp&#39;</span>
+</code></pre></div>
+
+<h3 id="modules-overview">Modules overview<a class="headerlink" href="#modules-overview" title="Permanent link">#</a></h3>
+<p>This repository provides content for Ansible&rsquo;s collection <strong>arista.cvp</strong> with following content:</p>
+<ul>
+<li><strong>arista.cvp.cv_facts</strong> - Collect CVP facts from server like list of containers, devices, configlet and tasks.</li>
+<li><strong>arista.cvp.cv_configlet</strong> -  Manage configlet configured on CVP.</li>
+<li><strong>arista.cvp.cv_container</strong> -  Manage container topology and attach configlet and devices to containers.</li>
+<li><strong>arista.cvp.cv_device</strong> - Manage devices configured on CVP</li>
+<li><strong>arista.cvp.cv_task</strong> - Run tasks created on CVP.</li>
+</ul>
+<p><strong>List of available roles:</strong></p>
+<ul>
+<li><a href="ansible_collections/arista/cvp/roles/dhcp_configuration/README.md"><strong>arista.cvp.dhcp_configuration</strong></a> - Configure DHCPD service on a Cloudvision server or any dhcpd service.</li>
+</ul>
+<p>This collection supports CVP version &gt;= <code>2018.2.5</code></p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h3>
+<h4 id="create-containers-on-cloudvision">Create containers on CloudVision<a class="headerlink" href="#create-containers-on-cloudvision" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Switch configuration</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
+  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+  <span class="nt">vars</span><span class="p">:</span>
+    <span class="nt">CVP_CONTAINERS</span><span class="p">:</span>
+      <span class="nt">DC1_LEAF1</span><span class="p">:</span>
+        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_L3LEAFS</span>
+      <span class="nt">DC1_FABRIC</span><span class="p">:</span>
+        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant</span>
+      <span class="nt">DC1_L3LEAFS</span><span class="p">:</span>
+        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
+      <span class="nt">DC1_LEAF2</span><span class="p">:</span>
+        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_L3LEAFS</span>
+      <span class="nt">DC1_SPINES</span><span class="p">:</span>
+        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Collecting</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">{{inventory_hostname}}.&#39;</span>
+      <span class="nt">arista.cvp.cv_facts</span><span class="p">:</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CVP_FACTS</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Building</span><span class="nv"> </span><span class="s">Container</span><span class="nv"> </span><span class="s">topology</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
+      <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">provision</span><span class="p p-Indicator">]</span>
+      <span class="nt">arista.cvp.cv_container</span><span class="p">:</span>
+        <span class="nt">topology</span><span class="p">:</span> <span class="s">&#39;{{CVP_CONTAINERS}}&#39;</span>
+        <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{CVP_FACTS.ansible_facts}}&#39;</span>
+</code></pre></div>
+
+<h4 id="create-configlets-on-cloudvision">Create Configlets on CloudVision<a class="headerlink" href="#create-configlets-on-cloudvision" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Switch configuration</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
+  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+  <span class="nt">vars</span><span class="p">:</span>
+    <span class="nt">CVP_CONFIGLETS</span><span class="p">:</span>
+      <span class="nt">ANSIBLE_TESTING_CONTAINER</span><span class="p">:</span> <span class="s">&quot;alias</span><span class="nv"> </span><span class="s">a{{</span><span class="nv"> </span><span class="s">999</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">random</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">show</span><span class="nv"> </span><span class="s">version&quot;</span>
+      <span class="nt">ANSIBLE_TESTING_VEOS</span><span class="p">:</span> <span class="s">&quot;alias</span><span class="nv"> </span><span class="s">a{{</span><span class="nv"> </span><span class="s">999</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">random</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">show</span><span class="nv"> </span><span class="s">version&quot;</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Collecting</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">{{inventory_hostname}}.&#39;</span>
+      <span class="nt">arista.cvp.cv_facts</span><span class="p">:</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CVP_FACTS</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Create</span><span class="nv"> </span><span class="s">configlets</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">{{inventory_hostname}}.&#39;</span>
+      <span class="nt">arista.cvp.cv_configlet</span><span class="p">:</span>
+        <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&quot;{{CVP_FACTS.ansible_facts}}&quot;</span>
+        <span class="nt">configlets</span><span class="p">:</span> <span class="s">&quot;{{CVP_CONFIGLETS}}&quot;</span>
+        <span class="nt">configlet_filter</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;_TESTING_&quot;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+
+<h4 id="configure-devices-on-cloudvision">Configure devices on CloudVision<a class="headerlink" href="#configure-devices-on-cloudvision" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Switch configuration</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
+  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+  <span class="nt">vars</span><span class="p">:</span>
+    <span class="nt">CVP_DEVICES</span><span class="p">:</span>
+      <span class="nt">DC1-SPINE1</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-SPINE1</span>
+        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_SPINES</span>
+        <span class="nt">configlets</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AVD_DC1-SPINE1</span>
+        <span class="nt">imageBundle</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+      <span class="nt">DC1-SPINE2</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-SPINE2</span>
+        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_SPINES</span>
+        <span class="nt">configlets</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AVD_DC1-SPINE2</span>
+        <span class="nt">imageBundle</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Collecting</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">{{inventory_hostname}}.&#39;</span>
+      <span class="nt">arista.cvp.cv_facts</span><span class="p">:</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CVP_FACTS</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Configure</span><span class="nv"> </span><span class="s">devices</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
+      <span class="nt">arista.cvp.cv_device</span><span class="p">:</span>
+        <span class="nt">devices</span><span class="p">:</span> <span class="s">&quot;{{CVP_DEVICES}}&quot;</span>
+        <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{CVP_FACTS.ansible_facts}}&#39;</span>
+        <span class="nt">device_filter</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;DC1&#39;</span><span class="p p-Indicator">]</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+</code></pre></div>
+
+<p>More documentation on <a href="https://github.com/aristanetworks/ansible-cvp">github repository</a></p>
+<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h3>
+<p>Project is published under <a href="LICENSE">Apache License</a>.</p>
+<h3 id="ask-a-question">Ask a question<a class="headerlink" href="#ask-a-question" title="Permanent link">#</a></h3>
+<p>Support for this <code>arista.cvp</code> collection is provided by the community directly in this repository. Easiest way to get support is to open <a href="https://github.com/aristanetworks/ansible-cvp/issues">an issue</a>.</p>
+<h3 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h3>
+<p>Contributing pull requests are gladly welcomed for this repository. If you are planning a big change, please start a discussion first to make sure we&rsquo;ll be able to merge it.</p>
+<p>You can also open an <a href="https://github.com/aristanetworks/ansible-cvp/issues">issue</a> to report any problem or to submit enhancement.</p>
+<p>A more complete <a href="https://github.com/aristanetworks/ansible-cvp/contributing.md">guide for contribution</a> is available in the repository</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Apache</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.1
+Build Date UTC : 2020-04-21 19:59:12
+-->

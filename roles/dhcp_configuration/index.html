@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Arista Ansible Team">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>DHCP Configuration - Arista Cloudvision ansible collection</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Arista Cloudvision ansible collection</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Roles documentation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">DHCP Configuration</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Modules documentation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../docs/module_docs/cv_facts.rst/" class="dropdown-item">Module cv_facts</a>
+</li>
+                                    
+<li>
+    <a href="../../docs/module_docs/cv_configlet.rst/" class="dropdown-item">Module cv_configlet</a>
+</li>
+                                    
+<li>
+    <a href="../../docs/module_docs/cv_container.rst/" class="dropdown-item">Module cv_container</a>
+</li>
+                                    
+<li>
+    <a href="../../docs/module_docs/cv_device.rst/" class="dropdown-item">Module cv_device</a>
+</li>
+                                    
+<li>
+    <a href="../../docs/module_docs/cv_tasks.rst.md" class="dropdown-item">Module cv_tasks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../contributing.md" class="dropdown-item">Contribution Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../docs/module_docs/cv_facts.rst/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#dhcp_configuration-role" class="nav-link">dhcp_configuration role</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="dhcp_configuration-role">dhcp_configuration role<a class="headerlink" href="#dhcp_configuration-role" title="Permanent link">#</a></h2>
+<p>Ansible role to provision and configure Zero Touch Provisioning on a CloudVision server. Role will do the following:</p>
+<ul>
+<li>Install DHCP package</li>
+<li>Activate DHCPd service on CloudVision.</li>
+<li>Create <code>/etc/dhcp/dhcpd.conf</code> file with relevant information.</li>
+<li>Reload <code>dhcpd</code> service to apply changes.</li>
+</ul>
+<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
+<p>No specific requirements to use this role.</p>
+<h3 id="tested-platforms">Tested Platforms<a class="headerlink" href="#tested-platforms" title="Permanent link">#</a></h3>
+<p>Below is a list of platforms where DHCPd configuration has been tested:</p>
+<ul>
+<li>Centos 7 / 8</li>
+<li>Ubuntu 18.02</li>
+<li>Arista Cloudvision 2019 and onward (for lab purpose)</li>
+</ul>
+<p>This role should work on any platform running <a href="https://www.isc.org/dhcp/">ISC-DHCP server</a>.</p>
+<blockquote>
+<p>If role is applied to Cloudvision server, DHCP configuration may be erased during upgrade process. Use it at your own risk in a production environment.</p>
+</blockquote>
+<h3 id="role-variables">Role Variables<a class="headerlink" href="#role-variables" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">dhcp_packages</span><span class="p">:</span> <span class="p p-Indicator">[]</span>     <span class="l l-Scalar l-Scalar-Plain">&lt; List of packages to install as part of DHCP service. (default is [&#39;dhcp&#39;])&gt;</span>
+<span class="nt">dhcp_packages_state</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">&lt; Flag to install or remove DHCP package. (default is present)&gt;</span>
+<span class="nt">dhcp_config_dir</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">&lt; Folder where dhcp config is saved. (default is /etc/dhcp/)&gt;</span>
+<span class="nt">dhcp_config</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">&lt; Configuration file for DHCP service. (default is {{ dhcp_config_dir }}/dhcpd.conf)&gt;</span>
+<span class="nt">dhcp_service</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">&lt; Name of the service running on the system for DHCP. (default is dhcpd)&gt;</span>
+<span class="nt">ztp</span><span class="p">:</span>
+  <span class="nt">default</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">&lt; Section with default value for hosts configuration &gt;</span>
+    <span class="l l-Scalar l-Scalar-Plain">registration</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">&lt; * Default URL to get Script to register to CV or initial configuration &gt;</span>
+    <span class="l l-Scalar l-Scalar-Plain">gateway</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">&lt; Gateway to use by default if not set per device &gt;</span>
+    <span class="l l-Scalar l-Scalar-Plain">nameservers</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">&lt; List of default NS to use on a per host basis &gt;</span>
+  <span class="nt">general</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">&lt; Section to define subnets parameters &gt;</span>
+    <span class="l l-Scalar l-Scalar-Plain">subnets</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">network</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">&lt; * Subnet where DHCP will listen for request &gt;</span>
+        <span class="nt">netmask</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">&lt; * Netmask of given subnet &gt;</span>
+        <span class="nt">gateway</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">&lt; Gateway to configure for given subnet &gt;</span>
+        <span class="nt">nameservers</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">&lt; List of name-servers to configure for given subnet &gt;</span>
+        <span class="nt">start</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">&lt; First IP available in the pool &gt;</span>
+        <span class="nt">end</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">&lt; Last IP available in the pool &gt;</span>
+        <span class="nt">lease_time</span><span class="p">:</span>   <span class="l l-Scalar l-Scalar-Plain">&lt; Maximum lease time before device loose IP. Renewal is max/2 &gt;</span>
+  <span class="nt">clients</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">&lt; List of clients on a mac-address basis &gt;</span>
+    <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">&lt; * Hostname to provide when device do a DHCP request &gt;</span>
+      <span class="l l-Scalar l-Scalar-Plain">mac</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">&lt; * Mac address of the host. Mac address value MUST be protected by either single or dual quotes &gt;</span>
+      <span class="l l-Scalar l-Scalar-Plain">ip4</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">&lt; * IP Address of the host &gt;</span>
+      <span class="l l-Scalar l-Scalar-Plain">registration</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">&lt; Registration URL to use for the host. If not set, default value will be applied &gt;</span>
+      <span class="l l-Scalar l-Scalar-Plain">gateway</span><span class="p p-Indicator">:</span>        <span class="l l-Scalar l-Scalar-Plain">&lt; Gateway to use for the host. If not set, default value will be applied &gt;</span>
+      <span class="l l-Scalar l-Scalar-Plain">nameservers</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">&lt; List of NS to use for the host. If not set, default value will be applied &gt;</span>
+</code></pre></div>
+
+<p>Variables with <code>*</code> are mandatory, others are optional and might be skipped if not needed in your setup.</p>
+<h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">#</a></h3>
+<p>No dependency required for this role.</p>
+<h3 id="example-playbook">Example Playbook<a class="headerlink" href="#example-playbook" title="Permanent link">#</a></h3>
+<p>Below is a basic playbook running <code>arista.cvp.dhcp_configuration</code> role</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Configure DHCP service on CloudVision</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dhcp_server</span>
+  <span class="nt">collection</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp</span>
+  <span class="nt">vars</span><span class="p">:</span>
+    <span class="nt">ztp</span><span class="p">:</span>
+      <span class="nt">default</span><span class="p">:</span>
+        <span class="nt">registration</span><span class="p">:</span> <span class="s">&#39;http://10.255.0.1/ztp/bootstrap&#39;</span>
+        <span class="nt">gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.3</span>
+        <span class="nt">nameservers</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="s">&#39;10.255.0.3&#39;</span>
+      <span class="nt">general</span><span class="p">:</span>
+        <span class="nt">subnets</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">network</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.0</span>
+            <span class="nt">netmask</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">255.255.255.0</span>
+            <span class="nt">gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.3</span>
+            <span class="nt">nameservers</span><span class="p">:</span>
+              <span class="p p-Indicator">-</span> <span class="s">&#39;10.255.0.3&#39;</span>
+            <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.200</span>
+            <span class="nt">end</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.250</span>
+            <span class="nt">lease_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+      <span class="nt">clients</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-SPINE1</span>
+          <span class="nt">mac</span><span class="p">:</span> <span class="s">&#39;0c:1d:c0:1d:62:01&#39;</span>
+          <span class="nt">ip4</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.11</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-SPINE2</span>
+          <span class="nt">mac</span><span class="p">:</span> <span class="s">&#39;0c:1d:c0:1d:62:02&#39;</span>
+          <span class="nt">ip4</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.12</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-LEAF1A</span>
+          <span class="nt">mac</span><span class="p">:</span> <span class="s">&#39;0c:1d:c0:1d:62:11&#39;</span>
+          <span class="nt">ip4</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.13</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Execute</span><span class="nv"> </span><span class="s">DHCP</span><span class="nv"> </span><span class="s">configuration</span><span class="nv"> </span><span class="s">role&#39;</span>
+    <span class="nt">import_role</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp.dhcp_configuration</span>
+</code></pre></div>
+
+<p>Inventory is configured like below:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">all</span><span class="p">:</span>
+  <span class="nt">children</span><span class="p">:</span>
+    <span class="nt">CVP</span><span class="p">:</span>
+      <span class="nt">hosts</span><span class="p">:</span>
+        <span class="nt">dhcp_server</span><span class="p">:</span>
+          <span class="nt">ansible_host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.1.1.1</span>
+          <span class="nt">ansible_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+          <span class="nt">ansible_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">password</span>
+</code></pre></div>
+
+<p>If you are not using <code>root</code> user, please also add <code>ansible_become_password</code>. By default, <code>ansible_become_password</code> is set to be equal to <code>ansible_password</code></p>
+<p>SSH connection is managed by <a href="http://www.paramiko.org/"><code>paramiko</code></a>.</p>
+<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h3>
+<p>Project is published under <a href="../../../../../LICENSE">Apache 2.0 License</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Apache</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
