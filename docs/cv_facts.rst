@@ -4,7 +4,7 @@ cv_facts
 ++++++++
 Collect facts from CloudVision Portal.
 
-Module added in version 2.9
+Module added in version .. versionadded:: 2.9
 
 
 

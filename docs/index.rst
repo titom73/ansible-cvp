@@ -20,10 +20,10 @@ Arista Cloudvision Ansible Modules
   :name: moduletoc::
   :maxdepth: 1
 
-   Module arista.cvp.cv_task <cv_task>
+   Module arista.cvp.cv_configlet <cv_configlet>
    Module arista.cvp.cv_facts <cv_facts>
    Module arista.cvp.cv_container <cv_container>
+   Module arista.cvp.cv_task <cv_task>
    Module arista.cvp.cv_device_v1 <cv_device_v1>
    Module arista.cvp.cv_facts_v1 <cv_facts_v1>
    Module arista.cvp.cv_device <cv_device>
-   Module arista.cvp.cv_configlet <cv_configlet>
