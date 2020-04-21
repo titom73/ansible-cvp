@@ -102,8 +102,40 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#ansible-modules-for-arista-cloudvision-platform" class="nav-link">Ansible Modules for Arista CloudVision Platform</a>
+            <li class="nav-item" data-level="1"><a href="#ansible-modules-for-arista-cloudvision-platform" class="nav-link">Ansible Modules for Arista CloudVision Platform</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#about" class="nav-link">About</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#requirements" class="nav-link">Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#installation" class="nav-link">Installation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#modules-overview" class="nav-link">Modules overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#example" class="nav-link">Example</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#license" class="nav-link">License</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ask-a-question" class="nav-link">Ask a question</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contributing" class="nav-link">Contributing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -111,10 +143,10 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="ansible-modules-for-arista-cloudvision-platform">Ansible Modules for Arista CloudVision Platform<a class="headerlink" href="#ansible-modules-for-arista-cloudvision-platform" title="Permanent link">#</a></h2>
-<h3 id="about">About<a class="headerlink" href="#about" title="Permanent link">#</a></h3>
+<h1 id="ansible-modules-for-arista-cloudvision-platform">Ansible Modules for Arista CloudVision Platform<a class="headerlink" href="#ansible-modules-for-arista-cloudvision-platform" title="Permanent link">#</a></h1>
+<h2 id="about">About<a class="headerlink" href="#about" title="Permanent link">#</a></h2>
 <p><a href="https://www.arista.com/">Arista Networks</a> supports Ansible for managing devices running the EOS operating system through <a href="https://www.arista.com/en/products/eos/eos-cloudvision">CloudVision platform (CVP)</a>. This roles includes a set of ansible modules that perform specific configuration tasks on CVP server. These tasks include: collecting facts, managing configlets, containers, build provisionning topology and running tasks.</p>
-<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <p><strong>Arista CloudVision:</strong></p>
 <ul>
 <li>CloudVision 2018.2.5 or later</li>
@@ -131,7 +163,7 @@
 <p><strong>Supported Ansible Versions:</strong></p>
 <pre><code>ansible 2.9 or later
 </code></pre>
-<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h3>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code>pip install requests&gt;<span class="o">=</span><span class="m">2</span>.22.0
 pip install treelib&gt;<span class="o">=</span><span class="m">1</span>.5.5
 </code></pre></div>
@@ -143,7 +175,7 @@ Starting collection install process
 Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1">&#39;~/.ansible/collections/ansible_collections/arista/cvp&#39;</span>
 </code></pre></div>
 
-<h3 id="modules-overview">Modules overview<a class="headerlink" href="#modules-overview" title="Permanent link">#</a></h3>
+<h2 id="modules-overview">Modules overview<a class="headerlink" href="#modules-overview" title="Permanent link">#</a></h2>
 <p>This repository provides content for Ansible&rsquo;s collection <strong>arista.cvp</strong> with following content:</p>
 <ul>
 <li><strong>arista.cvp.cv_facts</strong> - Collect CVP facts from server like list of containers, devices, configlet and tasks.</li>
@@ -157,8 +189,8 @@ Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1
 <li><a href="ansible_collections/arista/cvp/roles/dhcp_configuration/README.md"><strong>arista.cvp.dhcp_configuration</strong></a> - Configure DHCPD service on a Cloudvision server or any dhcpd service.</li>
 </ul>
 <p>This collection supports CVP version &gt;= <code>2018.2.5</code></p>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h3>
-<h4 id="create-containers-on-cloudvision">Create containers on CloudVision<a class="headerlink" href="#create-containers-on-cloudvision" title="Permanent link">#</a></h4>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
+<h3 id="create-containers-on-cloudvision">Create containers on CloudVision<a class="headerlink" href="#create-containers-on-cloudvision" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Switch configuration</span>
   <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
@@ -187,7 +219,7 @@ Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1
         <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{CVP_FACTS.ansible_facts}}&#39;</span>
 </code></pre></div>
 
-<h4 id="create-configlets-on-cloudvision">Create Configlets on CloudVision<a class="headerlink" href="#create-configlets-on-cloudvision" title="Permanent link">#</a></h4>
+<h3 id="create-configlets-on-cloudvision">Create Configlets on CloudVision<a class="headerlink" href="#create-configlets-on-cloudvision" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Switch configuration</span>
   <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
@@ -208,7 +240,7 @@ Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1
         <span class="nt">configlet_filter</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;_TESTING_&quot;</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 
-<h4 id="configure-devices-on-cloudvision">Configure devices on CloudVision<a class="headerlink" href="#configure-devices-on-cloudvision" title="Permanent link">#</a></h4>
+<h3 id="configure-devices-on-cloudvision">Configure devices on CloudVision<a class="headerlink" href="#configure-devices-on-cloudvision" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Switch configuration</span>
   <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
@@ -241,11 +273,11 @@ Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1
 </code></pre></div>
 
 <p>More documentation on <a href="https://github.com/aristanetworks/ansible-cvp">github repository</a></p>
-<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h3>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h2>
 <p>Project is published under <a href="LICENSE">Apache License</a>.</p>
-<h3 id="ask-a-question">Ask a question<a class="headerlink" href="#ask-a-question" title="Permanent link">#</a></h3>
+<h2 id="ask-a-question">Ask a question<a class="headerlink" href="#ask-a-question" title="Permanent link">#</a></h2>
 <p>Support for this <code>arista.cvp</code> collection is provided by the community directly in this repository. Easiest way to get support is to open <a href="https://github.com/aristanetworks/ansible-cvp/issues">an issue</a>.</p>
-<h3 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h3>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h2>
 <p>Contributing pull requests are gladly welcomed for this repository. If you are planning a big change, please start a discussion first to make sure we&rsquo;ll be able to merge it.</p>
 <p>You can also open an <a href="https://github.com/aristanetworks/ansible-cvp/issues">issue</a> to report any problem or to submit enhancement.</p>
 <p>A more complete <a href="https://github.com/aristanetworks/ansible-cvp/contributing.md">guide for contribution</a> is available in the repository</p></div>
@@ -333,5 +365,5 @@ Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1
 
 <!--
 MkDocs version : 1.1
-Build Date UTC : 2020-04-21 20:45:49
+Build Date UTC : 2020-04-21 20:51:00
 -->
