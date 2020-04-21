@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Arista Ansible Team">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Contribution Guide - Arista Cloudvision ansible collection</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Arista Cloudvision ansible collection</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../README.md" class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Roles documentation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../roles/dhcp_configuration/" class="dropdown-item">DHCP Configuration</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Modules documentation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../docs/module_docs/cv_facts.rst/" class="dropdown-item">Module cv_facts</a>
+</li>
+                                    
+<li>
+    <a href="../docs/module_docs/cv_configlet.rst/" class="dropdown-item">Module cv_configlet</a>
+</li>
+                                    
+<li>
+    <a href="../docs/module_docs/cv_container.rst/" class="dropdown-item">Module cv_container</a>
+</li>
+                                    
+<li>
+    <a href="../docs/module_docs/cv_device.rst/" class="dropdown-item">Module cv_device</a>
+</li>
+                                    
+<li>
+    <a href="../docs/module_docs/cv_tasks.rst.md" class="dropdown-item">Module cv_tasks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Contribution Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../docs/module_docs/cv_device.rst/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#contribute-to-arista-ansible-cvp-collection" class="nav-link">Contribute to Arista ansible-cvp collection</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="contribute-to-arista-ansible-cvp-collection">Contribute to Arista ansible-cvp collection<a class="headerlink" href="#contribute-to-arista-ansible-cvp-collection" title="Permanent link">#</a></h2>
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+<ul>
+<li><a href="#contribute-to-arista-ansible-cvp-collection">Contribute to Arista ansible-cvp collection</a></li>
+<li><a href="#reporting-bugs">Reporting Bugs</a></li>
+<li><a href="#feature-requests">Feature Requests</a></li>
+<li><a href="#using-the-issue-tracker">Using the issue tracker</a></li>
+<li><a href="#branches">Branches</a><ul>
+<li><a href="#current-active-branches">Current active branches</a></li>
+<li><a href="#branch-namespaces">Branch namespaces</a></li>
+<li><a href="#branches-for-bug-fixes-only">Branches for Bug Fixes only</a></li>
+</ul>
+</li>
+<li><a href="#pull-requests">Pull requests</a></li>
+</ul>
+<!-- /code_chunk_output -->
+
+<p>Please take a moment to review this document in order to make the contribution
+process easy and effective for everyone involved.</p>
+<p>Following these guidelines helps to communicate that you respect the time of
+the developers managing and developing this open source project. In return,
+they should reciprocate that respect in addressing your issue or assessing
+patches and features.</p>
+<h3 id="reporting-bugs">Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>First, ensure that you&rsquo;ve installed the <a href="https://github.com/aristanetworks/ansible-cvp/releases">latest stable version</a>
+of <strong>ansible-cvp</strong>. If you&rsquo;re running an older version, it&rsquo;s possible that the bug has
+already been fixed.</p>
+</li>
+<li>
+<p>Next, check the GitHub <a href="https://github.com/aristanetworks/ansible-cvp/issues">issues list</a>
+to see if the bug you&rsquo;ve found has already been reported. If you think you may
+be experiencing a reported issue that hasn&rsquo;t already been resolved, please
+click &ldquo;add a reaction&rdquo; in the top right corner of the issue and add a thumbs
+up (+1). You might also want to add a comment describing how it&rsquo;s affecting your
+installation. This will allow us to prioritize bugs based on how many users are
+affected.</p>
+</li>
+<li>
+<p>If you haven&rsquo;t found an existing issue that describes your suspected bug, <strong>Do not</strong> file an issue until you
+have received confirmation that it is in fact a bug. Invalid issues are very
+distracting and slow the pace at which <strong>ansible-cvp</strong> is developed.</p>
+</li>
+<li>
+<p>When submitting an issue, please be as descriptive as possible. Be sure to
+include:</p>
+<ul>
+<li>The environment in which <strong>ansible-cvp</strong> is running</li>
+<li>The exact steps that can be taken to reproduce the issue (if applicable)</li>
+<li>Any error messages generated</li>
+<li>Screenshots (if applicable)</li>
+</ul>
+</li>
+<li>
+<p>Please avoid prepending any sort of tag (e.g. &ldquo;[Bug]&rdquo;) to the issue title.
+The issue will be reviewed by a moderator after submission and the appropriate
+labels will be applied for categorization.</p>
+</li>
+<li>
+<p>Keep in mind that we prioritize bugs based on their severity and how much
+work is required to resolve them. It may take some time for someone to address
+your issue.</p>
+</li>
+</ul>
+<h3 id="feature-requests">Feature Requests<a class="headerlink" href="#feature-requests" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>First, check the GitHub <a href="https://github.com/aristanetworks/ansible-cvp/issues">issues list</a>
+to see if the feature you&rsquo;re requesting is already listed. (Be sure to search
+closed issues as well, since some feature requests have been rejected.) If the
+feature you&rsquo;d like to see has already been requested and is open, click &ldquo;add a
+reaction&rdquo; in the top right corner of the issue and add a thumbs up (+1). This
+ensures that the issue has a better chance of receiving attention. Also feel
+free to add a comment with any additional justification for the feature.
+(However, note that comments with no substance other than a &ldquo;+1&rdquo; will be
+deleted. Please use GitHub&rsquo;s reactions feature to indicate your support.)</p>
+</li>
+<li>
+<p>Before filing a new feature request, consider raising your idea on the
+mailing list first. Feedback you receive there will help validate and shape the
+proposed feature before filing a formal issue.</p>
+</li>
+<li>
+<p>Good feature requests are very narrowly defined. Be sure to thoroughly
+describe the functionality and data model(s) being proposed. The more effort
+you put into writing a feature request, the better its chance is of being
+implemented. Overly broad feature requests will be closed.</p>
+</li>
+<li>
+<p>When submitting a feature request on GitHub, be sure to include the
+following:</p>
+<ul>
+<li>A detailed description of the proposed functionality</li>
+<li>A use case for the feature; who would use it and what value it would add
+  to <strong>ansible-cvp</strong></li>
+<li>A rough description of changes necessary</li>
+<li>Any third-party libraries or other resources which would be involved</li>
+</ul>
+</li>
+<li>
+<p>Please avoid prepending any sort of tag (e.g. &ldquo;[Feature]&rdquo;) to the issue
+title. The issue will be reviewed by a moderator after submission and the
+appropriate labels will be applied for categorization.</p>
+</li>
+</ul>
+<h3 id="using-the-issue-tracker">Using the issue tracker<a class="headerlink" href="#using-the-issue-tracker" title="Permanent link">#</a></h3>
+<p>The issue tracker is the preferred channel for <a href="#bugs"><strong>bug reports</strong></a>,
+<a href="#features"><strong>features requests</strong></a> and <a href="#pull-requests"><strong>submitting pull
+requests</strong></a>, but please respect the following restrictions:</p>
+<ul>
+<li>
+<p>Please <strong>do not</strong> use the issue tracker for personal support requests.</p>
+</li>
+<li>
+<p>Please <strong>do not</strong> derail or troll issues. Keep the discussion on topic and
+  respect the opinions of others.</p>
+</li>
+</ul>
+<h3 id="branches">Branches<a class="headerlink" href="#branches" title="Permanent link">#</a></h3>
+<h4 id="current-active-branches">Current active branches<a class="headerlink" href="#current-active-branches" title="Permanent link">#</a></h4>
+<ul>
+<li>Current development branch: <strong><code>releases/v1.1.x</code></strong></li>
+<li>Stable branch: <code>master</code></li>
+</ul>
+<h4 id="branch-namespaces">Branch namespaces<a class="headerlink" href="#branch-namespaces" title="Permanent link">#</a></h4>
+<ul>
+<li>Branch namespace for issues: <code>issues/&lt;IssueID&gt;-&lt;issue-name-shorten&gt;</code></li>
+<li>Branch namespace for new features: <code>features/&lt;IssueID&gt;-&lt;issue-name-shorten&gt;</code></li>
+<li>Branch namespace for releases &amp; development: <code>releases/&lt;release_id&gt;</code></li>
+</ul>
+<h4 id="branches-for-bug-fixes-only">Branches for Bug Fixes only<a class="headerlink" href="#branches-for-bug-fixes-only" title="Permanent link">#</a></h4>
+<ul>
+<li>Branch <code>releases/v1.0.x</code>: Bug Fixes only (cherry-picking or specific PR)</li>
+</ul>
+<h3 id="pull-requests">Pull requests<a class="headerlink" href="#pull-requests" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>Be sure to open an issue <strong>before</strong> starting work on a pull request, and
+discuss your idea with the <strong>ansible-cvp</strong> maintainers before beginning work. This will
+help prevent wasting time on something that might we might not be able to
+implement. When suggesting a new feature, also make sure it won&rsquo;t conflict with
+any work that&rsquo;s already in progress.</p>
+</li>
+<li>
+<p>Any pull request which does <em>not</em> relate to an accepted issue will be closed.</p>
+</li>
+<li>
+<p>All major new functionality must include relevant tests where applicable.</p>
+</li>
+<li>
+<p>When submitting a pull request, please be sure to work off of the <code>releases/grant-v1.x</code>
+branch, rather than <code>master</code>. The <code>releases/grant-v1.x</code> branch is used for ongoing
+development, while <code>master</code> is used for tagging new stable releases.</p>
+</li>
+<li>
+<p>All code submissions should meet the following criteria (CI will enforce
+these checks):</p>
+<ul>
+<li>Python syntax is valid</li>
+<li>All tests pass when run with <code>make sanity</code></li>
+<li>PEP 8 compliance is enforced, with the exception that lines may be
+  greater than 80 characters in length</li>
+</ul>
+</li>
+</ul>
+<p>Adhering to the following this process is the best way to get your work
+merged:</p>
+<ol>
+<li><a href="http://help.github.com/fork-a-repo/">Fork</a> the repo, clone your fork,
+   and configure the remotes:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone your fork of the repo into the current directory</span>
+git clone https://github.com/&lt;your-username&gt;/ansible-cvp
+
+<span class="c1"># Navigate to the newly cloned directory</span>
+<span class="nb">cd</span> ansible-cvp
+
+<span class="c1"># Assign the original repo to a remote called &quot;upstream&quot;</span>
+git remote add upstream https://github.com/aristanetworks/ansible-cvp.git
+</code></pre></div>
+
+<ol>
+<li>If you cloned a while ago, get the latest changes from upstream:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git checkout &lt;dev-branch&gt;
+git pull upstream &lt;dev-branch&gt;
+</code></pre></div>
+
+<blockquote>
+<p>Please refer to <a href="#branches">branches section</a> to get current branch to use as <code>&lt;dev-branch&gt;</code></p>
+</blockquote>
+<ol>
+<li>Create a new topic branch (off the main project development branch) to
+   contain your feature, change, or fix:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git checkout -b &lt;topic-branch-name&gt;
+</code></pre></div>
+
+<ol>
+<li>
+<p>Commit your changes in logical chunks. Please adhere to these <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">git commit
+   message guidelines</a>
+   or your code is unlikely be merged into the main project. Use Git&rsquo;s
+   <a href="https://help.github.com/articles/interactive-rebase">interactive rebase</a>
+   feature to tidy up your commits before making them public.</p>
+</li>
+<li>
+<p>Locally merge (or rebase) the upstream development branch into your topic branch:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git pull <span class="o">[</span>--rebase<span class="o">]</span> upstream &lt;dev-branch&gt;
+</code></pre></div>
+
+<ol>
+<li>Push your topic branch up to your fork:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git push origin &lt;topic-branch-name&gt;
+</code></pre></div>
+
+<ol>
+<li><a href="https://github.com/aristanetworks/ansible-cvp/pulls">Open a Pull Request</a>
+    with a clear title and description.</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Apache</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
