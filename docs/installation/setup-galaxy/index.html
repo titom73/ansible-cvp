@@ -14,16 +14,16 @@
       
         <meta name="author" content="Arista Ansible Team">
       
-      <link rel="shortcut icon" href="/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
     
     
       
-        <title>Arista Cloudvision ansible collection</title>
+        <title>Installation using ansible-galaxy - Arista Cloudvision ansible collection</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.a676eddb.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a676eddb.min.css">
       
       
     
@@ -37,7 +37,7 @@
     
     
     
-      <link rel="stylesheet" href="/docs/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     
       
@@ -53,6 +53,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#collection-installation-via-ansible-galaxy" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -60,7 +65,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="/." title="Arista Cloudvision ansible collection" class="md-header-nav__button md-logo" aria-label="Arista Cloudvision ansible collection">
+    <a href="../../.." title="Arista Cloudvision ansible collection" class="md-header-nav__button md-logo" aria-label="Arista Cloudvision ansible collection">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
@@ -77,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              
+              Installation using ansible-galaxy
             
           </span>
         </div>
@@ -147,7 +152,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Arista Cloudvision ansible collection" class="md-nav__button md-logo" aria-label="Arista Cloudvision ansible collection">
+    <a href="../../.." title="Arista Cloudvision ansible collection" class="md-nav__button md-logo" aria-label="Arista Cloudvision ansible collection">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
@@ -175,10 +180,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
     
     <label class="md-nav__link" for="nav-1">
       Installation
@@ -202,7 +209,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/docs/installation/requirements/" title="Requirements" class="md-nav__link">
+    <a href="../requirements/" title="Requirements" class="md-nav__link">
       Requirements
     </a>
   </li>
@@ -212,11 +219,80 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="/docs/installation/setup-galaxy/" title="Installation using ansible-galaxy" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Installation using ansible-galaxy
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Installation using ansible-galaxy" class="md-nav__link md-nav__link--active">
       Installation using ansible-galaxy
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-from-ansible-galaxy" class="md-nav__link">
+    Install from Ansible Galaxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Install from Ansible Galaxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#latest-version" class="md-nav__link">
+    Latest version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-specific-version" class="md-nav__link">
+    Install specific version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-in-specific-directory" class="md-nav__link">
+    Install in specific directory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -226,7 +302,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/docs/installation/setup-git/" title="Installation using git" class="md-nav__link">
+    <a href="../setup-git/" title="Installation using git" class="md-nav__link">
       Installation using git
     </a>
   </li>
@@ -238,7 +314,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/docs/installation/setup-docker/" title="Docker & Development" class="md-nav__link">
+    <a href="../setup-docker/" title="Docker & Development" class="md-nav__link">
       Docker & Development
     </a>
   </li>
@@ -255,7 +331,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/docs/getting-started/" title="Getting Started" class="md-nav__link">
+    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
       Getting Started
     </a>
   </li>
@@ -292,7 +368,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/roles/dhcp_configuration/" title="DHCP Configuration role" class="md-nav__link">
+    <a href="../../../roles/dhcp_configuration/" title="DHCP Configuration role" class="md-nav__link">
       DHCP Configuration role
     </a>
   </li>
@@ -334,7 +410,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/docs/modules/cv_facts.rst/" title="Module cv_facts" class="md-nav__link">
+    <a href="../../modules/cv_facts.rst/" title="Module cv_facts" class="md-nav__link">
       Module cv_facts
     </a>
   </li>
@@ -346,7 +422,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/docs/modules/cv_configlet.rst/" title="Module cv_configlet" class="md-nav__link">
+    <a href="../../modules/cv_configlet.rst/" title="Module cv_configlet" class="md-nav__link">
       Module cv_configlet
     </a>
   </li>
@@ -358,7 +434,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/docs/modules/cv_container.rst/" title="Module cv_container" class="md-nav__link">
+    <a href="../../modules/cv_container.rst/" title="Module cv_container" class="md-nav__link">
       Module cv_container
     </a>
   </li>
@@ -370,7 +446,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/docs/modules/cv_device.rst/" title="Module cv_device" class="md-nav__link">
+    <a href="../../modules/cv_device.rst/" title="Module cv_device" class="md-nav__link">
       Module cv_device
     </a>
   </li>
@@ -382,7 +458,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/docs/modules/cv_task.rst/" title="Module cv_tasks" class="md-nav__link">
+    <a href="../../modules/cv_task.rst/" title="Module cv_tasks" class="md-nav__link">
       Module cv_tasks
     </a>
   </li>
@@ -424,7 +500,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/contributing/" title="Contribution Guide" class="md-nav__link">
+    <a href="../../../contributing/" title="Contribution Guide" class="md-nav__link">
       Contribution Guide
     </a>
   </li>
@@ -478,12 +554,100 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-from-ansible-galaxy" class="md-nav__link">
+    Install from Ansible Galaxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Install from Ansible Galaxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#latest-version" class="md-nav__link">
+    Latest version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-specific-version" class="md-nav__link">
+    Install specific version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-in-specific-directory" class="md-nav__link">
+    Install in specific directory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                  <a href="https://github.com/aristanetworks/ansible-cvp/edit/master/docs/docs/installation/setup-galaxy.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="collection-installation-via-ansible-galaxy">Collection installation via ansible-galaxy<a class="headerlink" href="#collection-installation-via-ansible-galaxy" title="Permanent link">#</a></h1>
+<h2 id="install-from-ansible-galaxy">Install from Ansible Galaxy<a class="headerlink" href="#install-from-ansible-galaxy" title="Permanent link">#</a></h2>
+<p><strong>arista.cvp</strong> collection is available on <a href="https://galaxy.ansible.com/arista/cvp">Ansible Galaxy</a> server and can be automatically installaded on your system.</p>
+<h3 id="latest-version">Latest version<a class="headerlink" href="#latest-version" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>$ ansible-galaxy collection install arista.cvp
+</code></pre></div>
 
+<h3 id="install-specific-version">Install specific version<a class="headerlink" href="#install-specific-version" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>$ ansible-galaxy collection install arista.cvp:<span class="o">==</span><span class="m">1</span>.0.2
+</code></pre></div>
+
+<h3 id="install-in-specific-directory">Install in specific directory<a class="headerlink" href="#install-in-specific-directory" title="Permanent link">#</a></h3>
+<p>If you want to install collection in a specific directory part of your project, you can call <code>ansible-galaxy</code> and update your <code>ansible.cfg</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install collection under ${PWD/collections/}</span>
+$ ansible-galaxy collection install arista.cvp -p collections/
+
+<span class="c1"># Update ansible.cfg file</span>
+$ vim ansible.cfg
+<span class="nv">collections_paths</span> <span class="o">=</span> <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/collections:~/.ansible/collections:/usr/share/ansible/collections
+</code></pre></div>
+                
+              
               
                 
 
@@ -496,6 +660,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../requirements/" title="Requirements" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Requirements
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../setup-git/" title="Installation using git" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Installation using git
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -517,15 +716,15 @@
       
     </div>
     
-      <script src="/assets/javascripts/vendor.c51dfa35.min.js"></script>
-      <script src="/assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "/",
+          base: "../../..",
           features: ["instant"],
           search: Object.assign({
-            worker: "/assets/javascripts/worker/search.58d22e8e.min.js"
+            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
