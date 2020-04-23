@@ -310,29 +310,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-install-python-virtual-environment" class="md-nav__link">
-    2. Install python virtual-environment
+  <a href="#install-python-virtual-environment" class="md-nav__link">
+    Install python virtual-environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-create-virtual-environment" class="md-nav__link">
-    3. Create virtual environment
+  <a href="#create-virtual-environment" class="md-nav__link">
+    Create virtual environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-install-collection-requirements" class="md-nav__link">
-    4. Install collection requirements
+  <a href="#install-collection-requirements" class="md-nav__link">
+    Install collection requirements
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-optional-update-your-ansiblecfg" class="md-nav__link">
-    5. (Optional) Update your ansible.cfg
+  <a href="#optional-update-your-ansiblecfg" class="md-nav__link">
+    (Optional) Update your ansible.cfg
   </a>
   
 </li>
@@ -656,29 +656,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-install-python-virtual-environment" class="md-nav__link">
-    2. Install python virtual-environment
+  <a href="#install-python-virtual-environment" class="md-nav__link">
+    Install python virtual-environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-create-virtual-environment" class="md-nav__link">
-    3. Create virtual environment
+  <a href="#create-virtual-environment" class="md-nav__link">
+    Create virtual environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-install-collection-requirements" class="md-nav__link">
-    4. Install collection requirements
+  <a href="#install-collection-requirements" class="md-nav__link">
+    Install collection requirements
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-optional-update-your-ansiblecfg" class="md-nav__link">
-    5. (Optional) Update your ansible.cfg
+  <a href="#optional-update-your-ansiblecfg" class="md-nav__link">
+    (Optional) Update your ansible.cfg
   </a>
   
 </li>
@@ -730,12 +730,12 @@ $ git clone https://github.com/aristanetworks/ansible-cvp.git
 <span class="nb">cd</span> ansible-cvp
 </code></pre></div>
 
-<h3 id="2-install-python-virtual-environment">2. Install python virtual-environment<a class="headerlink" href="#2-install-python-virtual-environment" title="Permanent link">#</a></h3>
+<h3 id="install-python-virtual-environment">Install python virtual-environment<a class="headerlink" href="#install-python-virtual-environment" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install virtualenv if not part of your system</span>
 $ python -m pip install virtualenv
 </code></pre></div>
 
-<h3 id="3-create-virtual-environment">3. Create virtual environment<a class="headerlink" href="#3-create-virtual-environment" title="Permanent link">#</a></h3>
+<h3 id="create-virtual-environment">Create virtual environment<a class="headerlink" href="#create-virtual-environment" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual env named .venv</span>
 $ virtualenv --no-site-packages -p <span class="k">$(</span>which python2.7<span class="k">)</span> .venv
 
@@ -743,12 +743,12 @@ $ virtualenv --no-site-packages -p <span class="k">$(</span>which python2.7<span
 $ <span class="nb">source</span> .venv/bin/activate
 </code></pre></div>
 
-<h3 id="4-install-collection-requirements">4. Install collection requirements<a class="headerlink" href="#4-install-collection-requirements" title="Permanent link">#</a></h3>
+<h3 id="install-collection-requirements">Install collection requirements<a class="headerlink" href="#install-collection-requirements" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install repsoitory requirements</span>
 $ pip install -r requirements.txt
 </code></pre></div>
 
-<h3 id="5-optional-update-your-ansiblecfg">5. (Optional) Update your ansible.cfg<a class="headerlink" href="#5-optional-update-your-ansiblecfg" title="Permanent link">#</a></h3>
+<h3 id="optional-update-your-ansiblecfg">(Optional) Update your ansible.cfg<a class="headerlink" href="#optional-update-your-ansiblecfg" title="Permanent link">#</a></h3>
 <p>Only if you want to use your own playbooks outside of __<code>examples/</code>__folder of the repository.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Get your current location</span>
 $ <span class="nb">pwd</span>
