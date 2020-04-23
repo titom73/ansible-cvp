@@ -660,9 +660,10 @@
 <li>Arista Cloudvision 2019 and onward (for lab purpose)</li>
 </ul>
 <p>This role should work on any platform running <a href="https://www.isc.org/dhcp/">ISC-DHCP server</a>.</p>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>If role is applied to Cloudvision server, DHCP configuration may be erased during upgrade process. Use it at your own risk in a production environment.</p>
-</blockquote>
+</div>
 <h2 id="role-variables">Role Variables<a class="headerlink" href="#role-variables" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">dhcp_packages</span><span class="p">:</span> <span class="p p-Indicator">[]</span>     <span class="l l-Scalar l-Scalar-Plain">&lt; List of packages to install as part of DHCP service. (default is [&#39;dhcp&#39;])&gt;</span>
 <span class="nt">dhcp_packages_state</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">&lt; Flag to install or remove DHCP package. (default is present)&gt;</span>
