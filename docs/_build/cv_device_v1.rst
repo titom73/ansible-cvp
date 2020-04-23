@@ -94,11 +94,10 @@ The following options may be specified for this module:
 
 .. _cv_device_v1-examples-label:
 
-Examples
---------
+Examples:
+---------
 
 ::
-
     
     ---
     - name: Test cv_device
@@ -136,8 +135,6 @@ Examples
             cvp_facts: '{{cvp_facts.ansible_facts}}'
             device_filter: ['veos']
           register: cvp_device
-
-
 
 
 

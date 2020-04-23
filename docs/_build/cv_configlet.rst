@@ -97,11 +97,10 @@ The following options may be specified for this module:
 
 .. _cv_configlet-examples-label:
 
-Examples
---------
+Examples:
+---------
 
 ::
-
     
     ---
     - name: Test cv_configlet_v2
@@ -127,8 +126,6 @@ Examples
             configlets: "{{configlet_list}}"
             configlet_filter: ["New", "Test","base-chk","base-firewall"]
           register: cvp_configlet
-
-
 
 
 

@@ -106,11 +106,10 @@ The following options may be specified for this module:
 
 .. _cv_device-examples-label:
 
-Examples
---------
+Examples:
+---------
 
 ::
-
     
     ---
     - name: Test cv_device
@@ -158,8 +157,6 @@ Examples
             configlet_mode: merge
             device_filter: ['veos']
           register: cvp_device
-
-
 
 
 

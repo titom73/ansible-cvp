@@ -105,11 +105,10 @@ The following options may be specified for this module:
 
 .. _cv_task-examples-label:
 
-Examples
---------
+Examples:
+---------
 
 ::
-
     
     ---
     - name: Execute all tasks registered in cvp_configlets variable
@@ -131,8 +130,6 @@ Examples
         port: '{{cvp_port}}'
         tasks: "{{ tasks }}"
         wait: 60
-
-
 
 
 

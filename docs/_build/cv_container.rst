@@ -78,11 +78,10 @@ The following options may be specified for this module:
 
 .. _cv_container-examples-label:
 
-Examples
---------
+Examples:
+---------
 
 ::
-
     
     - name: Create container topology on CVP
       hosts: cvp
@@ -108,8 +107,6 @@ Examples
         - name: "Build Container topology on {{inventory_hostname}}"
           cv_container:
             cvp_facts: '{{cvp_facts.ansible_facts}}'
-
-
 
 
 

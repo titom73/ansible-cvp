@@ -73,11 +73,10 @@ The following options may be specified for this module:
 
 .. _cv_facts-examples-label:
 
-Examples
---------
+Examples:
+---------
 
 ::
-
     
     ---
       tasks:
@@ -110,8 +109,6 @@ Examples
         - name: '#10 - Collect ALL facts from {{inventory_hostname}}'
           cv_facts:
           register: FACTS
-
-
 
 
 

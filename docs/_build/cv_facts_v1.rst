@@ -60,19 +60,16 @@ The following options may be specified for this module:
 
 .. _cv_facts_v1-examples-label:
 
-Examples
---------
+Examples:
+---------
 
 ::
-
     
     ---
         # Collect CVP Facts as init process
     - name: "Gather CVP facts from {{inventory_hostname}}"
       arista.cvp.cv_facts_v1:
       register: cvp_facts
-
-
 
 
 
