@@ -23,7 +23,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 import logging
-import ansible_collections.arista.cvp.plugins.module_utils.logger
+import ansible_collections.arista.cvp.plugins.module_utils.logger   # noqa # pylint: disable=unused-import
 
 MODULE_LOGGER = logging.getLogger('arista.cvp.tools_inventory')
 
@@ -47,7 +47,11 @@ def find_hostname_by_mac(inventory, mac_address):
     for device in inventory:
         if 'systemMacAddress' in device:
             if device['systemMacAddress'] == mac_address:
-                return device['name']
+                MODULE_LOGGER.debug('device data: %s', str(device))
+                if 'name' in device:
+                    return device['name']
+                elif 'hostname' in device:
+                    return device['hostname']
     return None
 
 

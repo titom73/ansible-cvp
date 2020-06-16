@@ -24,13 +24,13 @@ __metaclass__ = type
 
 ''' Class containing calls to CVP RESTful API.
 '''
-import os
+
 import logging
 # This import is for proper file IO handling support for both Python 2 and 3
 # pylint: disable=redefined-builtin
-from io import open
-from ansible_collections.arista.cvp.plugins.module_utils.cv_client import CvpClient
-from ansible_collections.arista.cvp.plugins.module_utils.cv_client_errors import CvpLoginError, CvpApiError
+
+from ansible_collections.arista.cvp.plugins.module_utils.cv_client import CvpClient  # noqa # pylint: disable=unused-import
+from ansible_collections.arista.cvp.plugins.module_utils.cv_client_errors import CvpLoginError, CvpApiError  # noqa # pylint: disable=unused-import
 
 try:
     from urllib import quote_plus as qplus
@@ -1088,10 +1088,10 @@ class CvpApi(object):
         self.log.debug('Attempting to move device %s to container %s'
                        % (device['fqdn'], container['name']))
         # Allow for deviceId key name variations
-        if 'systemMacAddress' not in device.keys() and 'key' in device.keys():
-            device['systemMacAddress'] = device['key']
-        if 'systemMacAddress' not in device.keys():
-            raise KeyError("update_imageBundle: key or systemMacAddress not found in device object %s" % device['name'])
+        if 'key' not in device.keys() and 'systemMacAddress' in device.keys():
+            device['key'] = device['systemMacAddress']
+        if 'key' not in device.keys():
+            raise KeyError("move_device_to_container: key or systemMacAddress not found in device object %s" % device['name'])
         # Allow for parentContainerId key name variations
         if 'parentContainerId' not in device.keys() and 'parentContainerKey' in device.keys():
             device['parentContainerId'] = device['parentContainerKey']

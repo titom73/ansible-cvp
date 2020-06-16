@@ -382,6 +382,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../configlets_sync/" title="Cloudvision Configlet Sync" class="md-nav__link">
+      Cloudvision Configlet Sync
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -508,7 +520,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../contributing/" title="Contribution Guide" class="md-nav__link">
+    <a href="../../docs/contributing/" title="Contribution Guide" class="md-nav__link">
       Contribution Guide
     </a>
   </li>
@@ -660,10 +672,9 @@
 <li>Arista Cloudvision 2019 and onward (for lab purpose)</li>
 </ul>
 <p>This role should work on any platform running <a href="https://www.isc.org/dhcp/">ISC-DHCP server</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<blockquote>
 <p>If role is applied to Cloudvision server, DHCP configuration may be erased during upgrade process. Use it at your own risk in a production environment.</p>
-</div>
+</blockquote>
 <h2 id="role-variables">Role Variables<a class="headerlink" href="#role-variables" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">dhcp_packages</span><span class="p">:</span> <span class="p p-Indicator">[]</span>     <span class="l l-Scalar l-Scalar-Plain">&lt; List of packages to install as part of DHCP service. (default is [&#39;dhcp&#39;])&gt;</span>
 <span class="nt">dhcp_packages_state</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">&lt; Flag to install or remove DHCP package. (default is present)&gt;</span>
@@ -744,11 +755,13 @@
       <span class="nt">hosts</span><span class="p">:</span>
         <span class="nt">dhcp_server</span><span class="p">:</span>
           <span class="nt">ansible_host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.1.1.1</span>
-          <span class="nt">ansible_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
-          <span class="nt">ansible_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">password</span>
+          <span class="nt">ansible_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user1</span>
+          <span class="nt">ansible_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">password1</span>
+          <span class="nt">ansible_become_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">password1</span>
+          <span class="nt">ansible_python_interpreter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$(which python3)</span>
 </code></pre></div>
 
-<p>If you are not using <code>root</code> user, please also add <code>ansible_become_password</code>. By default, <code>ansible_become_password</code> is set to be equal to <code>ansible_password</code></p>
+<p>If you are not using <strong>root</strong> user, configure <code>ansible_become_password</code> since role always use <code>become: true</code>.</p>
 <p>SSH connection is managed by <a href="http://www.paramiko.org/"><code>paramiko</code></a>.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h2>
 <p>Project is published under <a href="../../../../../LICENSE">Apache 2.0 License</a></p>
@@ -785,13 +798,13 @@
           </a>
         
         
-          <a href="../../docs/modules/cv_facts.rst/" title="Module cv_facts" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../configlets_sync/" title="Cloudvision Configlet Sync" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Module cv_facts
+                Cloudvision Configlet Sync
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

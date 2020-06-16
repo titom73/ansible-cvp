@@ -7,3 +7,6 @@ dhcp_packages:
 
 # DHCP service name
 dhcp_service: isc-dhcp-server
+
+# AppArmor Policy for isc-dhcp
+dhcp_apparmor_policy: /etc/apparmor.d/usr.sbin.dhcpd

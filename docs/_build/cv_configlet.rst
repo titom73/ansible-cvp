@@ -69,6 +69,17 @@ The following options may be specified for this module:
     </tr>
 
     <tr>
+    <td>configlets_notes<br/><div style="font-size: small;"></div></td>
+    <td>str</td>
+    <td>no</td>
+    <td>Managed by Ansible</td>
+    <td></td>
+    <td>
+        <div>Add a note to the configlets.</div>
+    </td>
+    </tr>
+
+    <tr>
     <td>cvp_facts<br/><div style="font-size: small;"></div></td>
     <td>dict</td>
     <td>yes</td>
@@ -124,6 +135,7 @@ Examples:
           cv_configlet:
             cvp_facts: "{{cvp_facts.ansible_facts}}"
             configlets: "{{configlet_list}}"
+            configlets_notes: "Configlet managed by Ansible"
             configlet_filter: ["New", "Test","base-chk","base-firewall"]
           register: cvp_configlet
 

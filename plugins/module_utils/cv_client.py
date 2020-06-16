@@ -83,13 +83,15 @@ Example:
     >>>
 '''
 
+# pylint: disable=wrong-import-position
+
 import re
 import json
 import logging
 import inspect
 import traceback
 from logging.handlers import SysLogHandler
-import ansible_collections.arista.cvp.plugins.module_utils.logger
+import ansible_collections.arista.cvp.plugins.module_utils.logger  # noqa # pylint: disable=unused-import
 from itertools import cycle
 from ansible_collections.arista.cvp.plugins.module_utils.cv_client_errors import CvpApiError, CvpLoginError, CvpRequestError, CvpSessionLogOutError
 REQUESTS_IMP_ERR = None
@@ -211,19 +213,19 @@ class CvpClient(object):
                     self.apiVersion = '2018'
                     self.apiName = 'cv_api2018'
                     if init:
-                        from ansible_collections.arista.cvp.plugins.module_utils.cv_api2018 import CvpApi
+                        from ansible_collections.arista.cvp.plugins.module_utils.cv_api2018 import CvpApi   # noqa # pylint: disable=wrong-import-position
                 elif int(self.splitVersion[0]) == 2019:
                     self.log.info('Setting API version to 2019')
                     self.apiVersion = '2019'
                     self.apiName = 'cv_api2019'
                     if init:
-                        from ansible_collections.arista.cvp.plugins.module_utils.cv_api2019 import CvpApi
+                        from ansible_collections.arista.cvp.plugins.module_utils.cv_api2019 import CvpApi  # noqa # pylint: disable=wrong-import-position
                 elif int(self.splitVersion[0]) == 2020:
                     self.log.info('Setting API version to 2020')
                     self.apiVersion = '2020'
                     self.apiName = 'cv_api2020'
                     if init:
-                        from ansible_collections.arista.cvp.plugins.module_utils.cv_api2020 import CvpApi
+                        from ansible_collections.arista.cvp.plugins.module_utils.cv_api2020 import CvpApi  # noqa # pylint: disable=wrong-import-position
                 else:
                     self.log.error('Unable to set API version')
             else:
@@ -285,7 +287,7 @@ class CvpClient(object):
         self._create_session(all_nodes=True)
         # Verify that we can connect to at least one node
         if not self.session:
-            self.log.error(' error connecting cvp: %s', str(self.error_msg))
+            self.log.error('error connecting to cvp: %s', str(self.error_msg.replace('\n', '')))
             raise CvpLoginError(self.error_msg)
         else:
             # Instantiate the CvpApi class
@@ -302,20 +304,13 @@ class CvpClient(object):
             num_nodes -= 1
 
         self.error_msg = '\n'
-        for x in range(0, num_nodes):
+        for x in range(0, num_nodes):   # noqa # pylint: disable=unused-variable
             host = next(self.node_pool)
             self.url_prefix = ('https://%s:%d/web' % (host, self.port or 443))
             error = self._reset_session()
             if error and not self.cert:
-                self.log.warning('Failed to connect over https. Potentially'
-                                 ' due to an old version of CVP. Attempting'
-                                 ' fallback to http. Error: %s', error)
-                # Attempt http fallback if no cert file is provided. The
-                # intention here is that a user providing a cert file
-                # forces https.
-                self.url_prefix = ('http://%s:%d/web'
-                                   % (host, self.port or 80))
-                error = self._reset_session()
+                self.log.error('error connecting to cvp (%s:%s)',
+                               host, str(self.port))
             if error is None:
                 break
             self.error_msg += '%s: %s\n' % (host, error)
@@ -342,6 +337,41 @@ class CvpClient(object):
             # this CVP node.
             self.session = None
         return return_error
+
+    def _finditem(self, obj, key):
+        """
+        Find a key in a a nested list/dict.
+
+        Parameters
+        ----------
+        obj : dict or list
+            Object to iterate to locate key
+        key : string
+            Name of the key to locate in dict or list.
+
+        Returns
+        -------
+        string
+            Value of found key or None if not found.
+        """
+        # print('  * obj is:'+str(type(obj)))
+        if isinstance(obj, dict):
+            if key in obj:
+                return obj[key]
+            for k, v in obj.items():    # noqa # pylint: disable=unused-variable
+                if isinstance(v, dict) or isinstance(v, list):
+                    item = self._finditem(v, key)
+                    if item is not None:
+                        return item
+
+        if isinstance(obj, list):
+            if key in obj:
+                return obj[key]
+            for i in obj:
+                if isinstance(i, list) or isinstance(i, dict):
+                    item = self._finditem(i, key)
+                    if item is not None:
+                        return item
 
     def _is_good_response(self, response, prefix):
         ''' Check for errors in a response from a GET or POST request.
@@ -371,8 +401,11 @@ class CvpClient(object):
             msg = ('%s: Request Error: session logged out' % prefix)
             raise CvpSessionLogOutError(msg)
 
-        if 'errorCode' in response.text:
-            joutput = response.json()
+        joutput = response.json()
+        # CVPRAC deviation related to issue #177
+        errorCode_result = self._finditem(obj=joutput, key='errorCode')
+        if errorCode_result:
+            err_msg = errorCode_result
             if 'errorMessage' in joutput:
                 err_msg = joutput['errorMessage']
             else:
@@ -402,7 +435,7 @@ class CvpClient(object):
                 CvpRequestError: A CvpRequestError is raised if the request
                     is not properly constructed.
                 CvpSessionLogOutError: A CvpSessionLogOutError is raised if
-                    reponse from server indicates session was logged out.
+                    response from server indicates session was logged out.
                 HTTPError: A HTTPError is raised if there was an invalid HTTP
                     response.
                 ReadTimeout: A ReadTimeout is raised if there was a request
@@ -468,7 +501,7 @@ class CvpClient(object):
                 CvpRequestError: A CvpRequestError is raised if the request
                     is not properly constructed.
                 CvpSessionLogOutError: A CvpSessionLogOutError is raised if
-                    reponse from server indicates session was logged out.
+                    response from server indicates session was logged out.
                 HTTPError: A HTTPError is raised if there was an invalid HTTP
                     response.
                 ReadTimeout: A ReadTimeout is raised if there was a request
@@ -556,7 +589,7 @@ class CvpClient(object):
                 CvpRequestError: A CvpRequestError is raised if the request
                     is not properly constructed.
                 CvpSessionLogOutError: A CvpSessionLogOutError is raised if
-                    reponse from server indicates session was logged out.
+                    response from server indicates session was logged out.
                 HTTPError: A HTTPError is raised if there was an invalid HTTP
                     response.
                 ReadTimeout: A ReadTimeout is raised if there was a request
@@ -671,7 +704,7 @@ class CvpClient(object):
                 CvpRequestError: A CvpRequestError is raised if the request
                     is not properly constructed.
                 CvpSessionLogOutError: A CvpSessionLogOutError is raised if
-                    reponse from server indicates session was logged out.
+                    response from server indicates session was logged out.
                 HTTPError: A HTTPError is raised if there was an invalid HTTP
                     response.
                 ReadTimeout: A ReadTimeout is raised if there was a request
@@ -710,7 +743,7 @@ class CvpClient(object):
                 CvpRequestError: A CvpRequestError is raised if the request
                     is not properly constructed.
                 CvpSessionLogOutError: A CvpSessionLogOutError is raised if
-                    reponse from server indicates session was logged out.
+                    response from server indicates session was logged out.
                 HTTPError: A HTTPError is raised if there was an invalid HTTP
                     response.
                 ReadTimeout: A ReadTimeout is raised if there was a request

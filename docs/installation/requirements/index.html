@@ -53,6 +53,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#requirements" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -209,10 +214,59 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Requirements
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
     
     <a href="./" title="Requirements" class="md-nav__link md-nav__link--active">
       Requirements
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arista-cloudvision" class="md-nav__link">
+    Arista CloudVision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-ansible-versions" class="md-nav__link">
+    Supported Ansible Versions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -303,6 +357,18 @@
   <li class="md-nav__item">
     <a href="../../../roles/dhcp_configuration/" title="DHCP Configuration role" class="md-nav__link">
       DHCP Configuration role
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/configlets_sync/" title="Cloudvision Configlet Sync" class="md-nav__link">
+      Cloudvision Configlet Sync
     </a>
   </li>
 
@@ -433,7 +499,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../contributing/" title="Contribution Guide" class="md-nav__link">
+    <a href="../../contributing/" title="Contribution Guide" class="md-nav__link">
       Contribution Guide
     </a>
   </li>
@@ -487,6 +553,52 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arista-cloudvision" class="md-nav__link">
+    Arista CloudVision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-ansible-versions" class="md-nav__link">
+    Supported Ansible Versions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -500,9 +612,26 @@
                   
                 
                 
-                  <h1>Requirements</h1>
-                
-                
+                <h1 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h1>
+<h2 id="arista-cloudvision">Arista CloudVision<a class="headerlink" href="#arista-cloudvision" title="Permanent link">#</a></h2>
+<p><strong>arista.cvp</strong> collection supports list of Cloudvision version as listed below:</p>
+<ul>
+<li><strong>CVP 2018.x.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>ansible-cvp 1.0.0</code></a></li>
+<li><strong>CVP 2019.x.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>ansible-cvp 1.0.0</code></a></li>
+<li><strong>CVP 2020.x.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.1.0"><code>ansible-cvp 1.1.0</code></a></li>
+</ul>
+<p>When a CVP version is supported starting a specific version, any upcoming version will support that version until a specific announcement was made.</p>
+<h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">#</a></h2>
+<ul>
+<li>Python 3.x</li>
+</ul>
+<p><strong>Additional Python Libraries required:</strong></p>
+<ul>
+<li>requests &gt;= <code>2.22.0</code></li>
+<li>treelib version <code>1.5.5</code> or later</li>
+</ul>
+<h2 id="supported-ansible-versions">Supported Ansible Versions<a class="headerlink" href="#supported-ansible-versions" title="Permanent link">#</a></h2>
+<p>ansible 2.9 or later</p>
                 
               
               

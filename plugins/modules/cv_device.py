@@ -29,17 +29,14 @@ ANSIBLE_METADATA = {
     "supported_by": "community",
 }
 
-import re
 import logging
-import ansible_collections.arista.cvp.plugins.module_utils.logger
+import ansible_collections.arista.cvp.plugins.module_utils.logger   # noqa # pylint: disable=unused-import
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.connection import Connection, ConnectionError
 from ansible_collections.arista.cvp.plugins.module_utils.cv_client import CvpClient
 from ansible_collections.arista.cvp.plugins.module_utils.cv_client_errors import (
-    CvpLoginError,
-    CvpApiError,
+    CvpLoginError
 )
-from time import sleep
+from ansible.module_utils.connection import Connection
 
 DOCUMENTATION = r"""
 ---
@@ -559,6 +556,8 @@ def build_new_devices_list(module):
             cvp_device = device_get_from_facts(
                 module=module, device_name=ansible_device_hostname
             )
+            if cvp_device is None:
+                module.fail_json(msg="Device not available on Cloudvision ("+ansible_device_hostname+")")
             if len(cvp_device) >= 0:
                 if is_in_container(device=cvp_device, container="undefined_container"):
                     device_info = {
@@ -728,7 +727,7 @@ def devices_new(module):
                 )
                 result_update.append({device_update["name"]: message})
             else:
-                changed = True
+                changed = True  # noqa # pylint: disable=unused-variable
                 if "taskIds" in str(device_action):
                     device_provisioned_result += 1
                     result_tasks_generatedtaskId += device_action["data"]["taskIds"]
@@ -786,7 +785,7 @@ def devices_move(module):
     result_move = list()
     result_tasks_generated = list()
     device_action = dict()
-    changed = False
+    changed = False  # noqa # pylint: disable=unused-variable
     MODULE_LOGGER.debug(" * devices_move - Entering devices_move")
 
     for device_update in devices_update:
@@ -809,26 +808,28 @@ def devices_move(module):
                 )
             except Exception as error:
                 errorMessage = str(error)
-                message = "Device %s cannot be moved - %s" % (
+                message = "Device %s cannot be moved - %s" % (  # noqa # pylint: disable=unused-variable
                     device_update["name"],
                     errorMessage,
-                )
-
-            changed = True
-            devices_moved += 1
-            if "taskIds" in str(device_action):
-                for taskId in device_action["data"]["taskIds"]:
-                    result_tasks_generated.append(taskId)
-                result_move.append(
-                    {
-                        device_update["name"]: "device-move-%s"
-                        % device_action["data"]["taskIds"]
-                    }
-                )
+                )   # noqa # pylint: disable=unused-variable
+                # TODO: Add log message to trace exception.
+                result_move.append({device_update["name"]: message})
             else:
-                result_move.append(
-                    {device_update["name"]: "device-move-no-specifc-tasks"}
-                )
+                changed = True
+                devices_moved += 1
+                if "taskIds" in str(device_action):
+                    for taskId in device_action["data"]["taskIds"]:
+                        result_tasks_generated.append(taskId)
+                    result_move.append(
+                        {
+                            device_update["name"]: "device-move-%s"
+                            % device_action["data"]["taskIds"]
+                        }
+                    )
+                else:
+                    result_move.append(
+                        {device_update["name"]: "device-move-no-specifc-tasks"}
+                    )
 
     # Build response structure
     data = {
@@ -899,7 +900,7 @@ def devices_update(module, mode="override"):
         )
         # Start configlet update in override mode
         if mode == 'override':
-            # Get list of configlet to update: in ansible inputs and not in facts
+            # Get list of configlet to update: in ansible inputs and not in facts 
             if is_list_diff(device_update["configlets"], device_update["cv_configlets"]):
                 configlets_delete = get_unique_from_list(
                     source_list=device_update["cv_configlets"],
@@ -971,7 +972,7 @@ def devices_update(module, mode="override"):
                 )
                 result_update.append({device_update["name"]: message})
             else:
-                changed = True
+                changed = True  # noqa # pylint: disable=unused-variable
                 if "taskIds" in str(device_action):
                     devices_updated += 1
                     for taskId in device_action["data"]["taskIds"]:
@@ -1028,12 +1029,10 @@ def devices_reset(module):
         Dict result with tasks and information.
     """
     # If any configlet changed updated 'changed' flag
-    changed = False
+    changed = False  # noqa # pylint: disable=unused-variable
     # Compare configlets against cvp_facts-configlets
-    reset_device = []  # devices to factory reset
     reset = []
     newTasks = []  # Task Ids that have been identified during device actions
-    taskList = []  # Tasks that have a pending status after function runs
 
     for cvp_device in module.params["cvp_facts"]["devices"]:
         # Include only devices that match filter elements, "all" will
@@ -1125,8 +1124,6 @@ def devices_action(module):
         Json structure to stdout to ansible.
     """
     # change_mode = module.params['configlet_mode']
-    cvp_facts = module.params["cvp_facts"]
-    topology_devices = module.params["devices"]
     topology_state = module.params["state"]
     configlet_mode = module.params['configlet_mode']
 
@@ -1145,17 +1142,17 @@ def devices_action(module):
         if len(result_add["added_tasksIds"]) > 0:
             results["data"]["tasksIds"] += result_add["added_tasksIds"]
 
+        # move devices that needs to be moved to another container.
+        result_move = devices_move(module=module)
+        results["data"].update(result_move)
+        if len(result_move["moved_tasksIds"]) > 0:
+            results["data"]["tasksIds"] += result_move["moved_tasksIds"]
+
         # update devices that need to be updated
         result_update = devices_update(module=module, mode=configlet_mode)
         results["data"].update(result_update)
         if len(result_update["updated_tasksIds"]) > 0:
             results["data"]["tasksIds"] += result_update["updated_tasksIds"]
-
-        # move devices that needs to be moved to another container.
-        result_move = devices_move(module=module)
-        results["data"].update(result_move)
-        if len(result_move["moved_tasksIds"]) > 0:
-            results["data"]["tasksIds"] += result_update["moved_tasksIds"]
 
         # Get CV info for generated tasks
         tasks_generated = tasks_get_filtered(

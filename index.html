@@ -303,6 +303,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="roles/configlets_sync/" title="Cloudvision Configlet Sync" class="md-nav__link">
+      Cloudvision Configlet Sync
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -429,7 +441,7 @@
 
 
   <li class="md-nav__item">
-    <a href="contributing/" title="Contribution Guide" class="md-nav__link">
+    <a href="docs/contributing/" title="Contribution Guide" class="md-nav__link">
       Contribution Guide
     </a>
   </li>
@@ -610,11 +622,13 @@
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <p><strong>Arista CloudVision:</strong></p>
 <ul>
-<li>CloudVision 2018.2.5 or later</li>
+<li><strong>2018</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>1.0.0</code></a></li>
+<li><strong>2019</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>1.0.0</code></a></li>
+<li><strong>2020</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.1.0"><code>1.1.0</code></a></li>
 </ul>
 <p><strong>Python:</strong></p>
 <ul>
-<li>Python 3.6.8 or later</li>
+<li>Python 3.x</li>
 </ul>
 <p><strong>Additional Python Libraries required:</strong></p>
 <ul>
@@ -622,10 +636,7 @@
 <li>treelib version <code>1.5.5</code> or later</li>
 </ul>
 <p><strong>Supported Ansible Versions:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="err">ansible 2.9 or later</span>
-</code></pre></div>
-
-
+<p>ansible 2.9 or later</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code>pip install requests&gt;<span class="o">=</span><span class="m">2</span>.22.0
 pip install treelib&gt;<span class="o">=</span><span class="m">1</span>.5.5
@@ -650,8 +661,8 @@ Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1
 <p><strong>List of available roles:</strong></p>
 <ul>
 <li><a href="roles/dhcp_configuration/"><strong>arista.cvp.dhcp_configuration</strong></a> - Configure DHCPD service on a Cloudvision server or any dhcpd service.</li>
+<li><a href="roles/configlets_sync/"><strong>arista.cvp.configlet_sync</strong></a> - Synchronize configlets between multiple Cloudvision servers.</li>
 </ul>
-<p>This collection supports CVP version &gt;= <code>2018.2.5</code></p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
 <h3 id="create-containers-on-cloudvision">Create containers on CloudVision<a class="headerlink" href="#create-containers-on-cloudvision" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>

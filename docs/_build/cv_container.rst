@@ -41,6 +41,17 @@ The following options may be specified for this module:
     </tr>
 
     <tr>
+    <td>configlet_filter<br/><div style="font-size: small;"></div></td>
+    <td>list</td>
+    <td>no</td>
+    <td>[&#x27;none&#x27;]</td>
+    <td></td>
+    <td>
+        <div>Filter to apply intended set of configlet on containers. If not used, then module only uses ADD mode. configlet_filter list configlets that can be modified or deleted based on configlets entries.</div>
+    </td>
+    </tr>
+
+    <tr>
     <td>cvp_facts<br/><div style="font-size: small;"></div></td>
     <td>dict</td>
     <td>yes</td>

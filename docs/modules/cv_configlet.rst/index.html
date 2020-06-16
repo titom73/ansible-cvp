@@ -303,6 +303,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/configlets_sync/" title="Cloudvision Configlet Sync" class="md-nav__link">
+      Cloudvision Configlet Sync
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -507,7 +519,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../contributing/" title="Contribution Guide" class="md-nav__link">
+    <a href="../../contributing/" title="Contribution Guide" class="md-nav__link">
       Contribution Guide
     </a>
   </li>
@@ -691,6 +703,17 @@ configlets if the two are different.</p>
 </tr>
 
 <tr>
+<td>configlets_notes<br/><div style="font-size: small;"></div></td>
+<td>str</td>
+<td>no</td>
+<td>Managed by Ansible</td>
+<td></td>
+<td>
+    <div>Add a note to the configlets.</div>
+</td>
+</tr>
+
+<tr>
 <td>cvp_facts<br/><div style="font-size: small;"></div></td>
 <td>dict</td>
 <td>yes</td>
@@ -740,6 +763,7 @@ configlets if the two are different.</p>
 <span class="x">      cv_configlet:</span>
 <span class="x">        cvp_facts: &quot;</span><span class="cp">{{</span><span class="nv">cvp_facts.ansible_facts</span><span class="cp">}}</span><span class="x">&quot;</span>
 <span class="x">        configlets: &quot;</span><span class="cp">{{</span><span class="nv">configlet_list</span><span class="cp">}}</span><span class="x">&quot;</span>
+<span class="x">        configlets_notes: &quot;Configlet managed by Ansible&quot;</span>
 <span class="x">        configlet_filter: [&quot;New&quot;, &quot;Test&quot;,&quot;base-chk&quot;,&quot;base-firewall&quot;]</span>
 <span class="x">      register: cvp_configlet</span>
 </code></pre></div>
