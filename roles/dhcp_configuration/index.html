@@ -378,26 +378,6 @@
     Example Playbook
   </a>
   
-    <nav class="md-nav" aria-label="Example Playbook">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generate-dhcpd-configuration-to-deploy-on-a-dhcp-server" class="md-nav__link">
-    Generate DHCPD configuration to deploy on a DHCP server
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-server-to-act-as-ztp-server" class="md-nav__link">
-    Configure Server to act as ZTP server
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -657,26 +637,6 @@
     Example Playbook
   </a>
   
-    <nav class="md-nav" aria-label="Example Playbook">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generate-dhcpd-configuration-to-deploy-on-a-dhcp-server" class="md-nav__link">
-    Generate DHCPD configuration to deploy on a DHCP server
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-server-to-act-as-ztp-server" class="md-nav__link">
-    Configure Server to act as ZTP server
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -728,18 +688,11 @@
 <p>If role is applied to Cloudvision server, DHCP configuration may be erased during upgrade process. Use it at your own risk in a production environment.</p>
 </blockquote>
 <h2 id="role-variables">Role Variables<a class="headerlink" href="#role-variables" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nt">mode</span><span class="p">:</span>                 <span class="l l-Scalar l-Scalar-Plain">&lt; offline/online - Select if role configure a DHCP server or just generate dhcpd.conf file locally. (default online) &gt;</span>
-<span class="c1"># Offline only variables</span>
-<span class="nt">output_dir</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">&lt; path where to save dhcpd.conf file when using offline mode.&gt;</span>
-
-<span class="c1"># Online only variables</span>
-<span class="nt">dhcp_packages</span><span class="p">:</span> <span class="p p-Indicator">[]</span>     <span class="l l-Scalar l-Scalar-Plain">&lt; List of packages to install as part of DHCP service. (default is [&#39;dhcp&#39;])&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">dhcp_packages</span><span class="p">:</span> <span class="p p-Indicator">[]</span>     <span class="l l-Scalar l-Scalar-Plain">&lt; List of packages to install as part of DHCP service. (default is [&#39;dhcp&#39;])&gt;</span>
 <span class="nt">dhcp_packages_state</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">&lt; Flag to install or remove DHCP package. (default is present)&gt;</span>
 <span class="nt">dhcp_config_dir</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">&lt; Folder where dhcp config is saved. (default is /etc/dhcp/)&gt;</span>
 <span class="nt">dhcp_config</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">&lt; Configuration file for DHCP service. (default is {{ dhcp_config_dir }}/dhcpd.conf)&gt;</span>
 <span class="nt">dhcp_service</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">&lt; Name of the service running on the system for DHCP. (default is dhcpd)&gt;</span>
-
-<span class="c1"># Data for template engine. For both offline and online mode</span>
 <span class="nt">ztp</span><span class="p">:</span>
   <span class="nt">default</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">&lt; Section with default value for hosts configuration &gt;</span>
     <span class="l l-Scalar l-Scalar-Plain">registration</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">&lt; * Default URL to get Script to register to CV or initial configuration &gt;</span>
@@ -767,55 +720,10 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">#</a></h2>
 <p>No dependency required for this role.</p>
 <h2 id="example-playbook">Example Playbook<a class="headerlink" href="#example-playbook" title="Permanent link">#</a></h2>
-<h3 id="generate-dhcpd-configuration-to-deploy-on-a-dhcp-server">Generate DHCPD configuration to deploy on a DHCP server<a class="headerlink" href="#generate-dhcpd-configuration-to-deploy-on-a-dhcp-server" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Configure DHCP service on CloudVision</span>
-  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dhcp_server</span>
-  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="nt">collection</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp</span>
-  <span class="nt">vars</span><span class="p">:</span>
-    <span class="nt">ztp</span><span class="p">:</span>
-      <span class="nt">default</span><span class="p">:</span>
-        <span class="nt">registration</span><span class="p">:</span> <span class="s">&#39;http://10.255.0.1/ztp/bootstrap&#39;</span>
-        <span class="nt">gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.3</span>
-        <span class="nt">nameservers</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="s">&#39;10.255.0.3&#39;</span>
-      <span class="nt">general</span><span class="p">:</span>
-        <span class="nt">subnets</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="nt">network</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.0</span>
-            <span class="nt">netmask</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">255.255.255.0</span>
-            <span class="nt">gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.3</span>
-            <span class="nt">nameservers</span><span class="p">:</span>
-              <span class="p p-Indicator">-</span> <span class="s">&#39;10.255.0.3&#39;</span>
-            <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.200</span>
-            <span class="nt">end</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.250</span>
-            <span class="nt">lease_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
-      <span class="nt">clients</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-SPINE1</span>
-          <span class="nt">mac</span><span class="p">:</span> <span class="s">&#39;0c:1d:c0:1d:62:01&#39;</span>
-          <span class="nt">ip4</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.11</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-SPINE2</span>
-          <span class="nt">mac</span><span class="p">:</span> <span class="s">&#39;0c:1d:c0:1d:62:02&#39;</span>
-          <span class="nt">ip4</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.12</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-LEAF1A</span>
-          <span class="nt">mac</span><span class="p">:</span> <span class="s">&#39;0c:1d:c0:1d:62:11&#39;</span>
-          <span class="nt">ip4</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.0.13</span>
-  <span class="nt">tasks</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Execute</span><span class="nv"> </span><span class="s">DHCP</span><span class="nv"> </span><span class="s">configuration</span><span class="nv"> </span><span class="s">role&#39;</span>
-    <span class="nt">import_role</span><span class="p">:</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp.dhcp_configuration</span>
-    <span class="nt">vars</span><span class="p">:</span>
-      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offline</span>
-      <span class="nt">output_dirs</span><span class="p">:</span> <span class="s">&#39;{{inventory}}&#39;</span>
-</code></pre></div>
-
-<h3 id="configure-server-to-act-as-ztp-server">Configure Server to act as ZTP server<a class="headerlink" href="#configure-server-to-act-as-ztp-server" title="Permanent link">#</a></h3>
 <p>Below is a basic playbook running <code>arista.cvp.dhcp_configuration</code> role</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Configure DHCP service on CloudVision</span>
   <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dhcp_server</span>
-  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
   <span class="nt">collection</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp</span>
   <span class="nt">vars</span><span class="p">:</span>
