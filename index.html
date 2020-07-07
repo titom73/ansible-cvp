@@ -219,6 +219,18 @@
 
 
   <li class="md-nav__item">
+    <a href="docs/installation/setup-docker/" title="Use docker environment" class="md-nav__link">
+      Use docker environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="docs/installation/setup-galaxy/" title="Installation using ansible-galaxy" class="md-nav__link">
       Installation using ansible-galaxy
     </a>
@@ -546,33 +558,6 @@
     Example
   </a>
   
-    <nav class="md-nav" aria-label="Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-containers-on-cloudvision" class="md-nav__link">
-    Create containers on CloudVision
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-configlets-on-cloudvision" class="md-nav__link">
-    Create Configlets on CloudVision
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-devices-on-cloudvision" class="md-nav__link">
-    Configure devices on CloudVision
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -664,89 +649,60 @@ Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1
 <li><a href="roles/configlets_sync/"><strong>arista.cvp.configlet_sync</strong></a> - Synchronize configlets between multiple Cloudvision servers.</li>
 </ul>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
-<h3 id="create-containers-on-cloudvision">Create containers on CloudVision<a class="headerlink" href="#create-containers-on-cloudvision" title="Permanent link">#</a></h3>
+<p>This example outlines how to use <code>arista.cvp</code> to create a containers topology on Arista CloudVision.</p>
+<p>A dedicated repository is available for step by step examples on <a href="https://github.com/arista-netdevops-community/ansible-cvp-toi">ansible-cvp-toi</a>.</p>
+<p>A <a href="https://github.com/arista-netdevops-community/ansible-avd-cloudvision-demo">complete end to end demo</a> using <a href="https://github.com/aristanetworks/ansible-avd">Arista Validated Design collection</a> and CloudVision modules is available as an example. You can also find some playbook examples under <a href="examples/"><strong><code>examples</code></strong></a> folder with information about how to built a test environment.</p>
+<p>Below is a very basic example to build a container topology on a CloudVision platform assuming you have 3 veos named <code>veos0{1,3}</code> and a configlet named <code>alias</code></p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Switch configuration</span>
-  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Playbook to demonstrate cv_container module.</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cvp</span>
   <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
   <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+  <span class="nt">collections</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp</span>
   <span class="nt">vars</span><span class="p">:</span>
-    <span class="nt">CVP_CONTAINERS</span><span class="p">:</span>
-      <span class="nt">DC1_LEAF1</span><span class="p">:</span>
-        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_L3LEAFS</span>
-      <span class="nt">DC1_FABRIC</span><span class="p">:</span>
-        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant</span>
-      <span class="nt">DC1_L3LEAFS</span><span class="p">:</span>
-        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
-      <span class="nt">DC1_LEAF2</span><span class="p">:</span>
-        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_L3LEAFS</span>
-      <span class="nt">DC1_SPINES</span><span class="p">:</span>
-        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
+    <span class="nt">containers_provision</span><span class="p">:</span>
+        <span class="nt">Fabric</span><span class="p">:</span>
+          <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant</span>
+        <span class="nt">Spines</span><span class="p">:</span>
+          <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Fabric</span>
+        <span class="nt">Leaves</span><span class="p">:</span>
+          <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Fabric</span>
+          <span class="nt">configlets</span><span class="p">:</span>
+              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">alias</span>
+          <span class="nt">devices</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">veos03</span>
+        <span class="nt">MLAG01</span><span class="p">:</span>
+          <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Leaves</span>
+          <span class="nt">devices</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">veos01</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">veos02</span>
   <span class="nt">tasks</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Collecting</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">{{inventory_hostname}}.&#39;</span>
-      <span class="nt">arista.cvp.cv_facts</span><span class="p">:</span>
-      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CVP_FACTS</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Building</span><span class="nv"> </span><span class="s">Container</span><span class="nv"> </span><span class="s">topology</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
-      <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">provision</span><span class="p p-Indicator">]</span>
-      <span class="nt">arista.cvp.cv_container</span><span class="p">:</span>
-        <span class="nt">topology</span><span class="p">:</span> <span class="s">&#39;{{CVP_CONTAINERS}}&#39;</span>
-        <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{CVP_FACTS.ansible_facts}}&#39;</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Gather</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
+      <span class="nt">cv_facts</span><span class="p">:</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cvp_facts</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Build</span><span class="nv"> </span><span class="s">Container</span><span class="nv"> </span><span class="s">topology</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
+      <span class="nt">cv_container</span><span class="p">:</span>
+        <span class="nt">topology</span><span class="p">:</span> <span class="s">&#39;{{containers_provision}}&#39;</span>
+        <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{cvp_facts.ansible_facts}}&#39;</span>
 </code></pre></div>
 
-<h3 id="create-configlets-on-cloudvision">Create Configlets on CloudVision<a class="headerlink" href="#create-configlets-on-cloudvision" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Switch configuration</span>
-  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
-  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
-  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
-  <span class="nt">vars</span><span class="p">:</span>
-    <span class="nt">CVP_CONFIGLETS</span><span class="p">:</span>
-      <span class="nt">ANSIBLE_TESTING_CONTAINER</span><span class="p">:</span> <span class="s">&quot;alias</span><span class="nv"> </span><span class="s">a{{</span><span class="nv"> </span><span class="s">999</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">random</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">show</span><span class="nv"> </span><span class="s">version&quot;</span>
-      <span class="nt">ANSIBLE_TESTING_VEOS</span><span class="p">:</span> <span class="s">&quot;alias</span><span class="nv"> </span><span class="s">a{{</span><span class="nv"> </span><span class="s">999</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">random</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">show</span><span class="nv"> </span><span class="s">version&quot;</span>
-  <span class="nt">tasks</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Collecting</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">{{inventory_hostname}}.&#39;</span>
-      <span class="nt">arista.cvp.cv_facts</span><span class="p">:</span>
-      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CVP_FACTS</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Create</span><span class="nv"> </span><span class="s">configlets</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">{{inventory_hostname}}.&#39;</span>
-      <span class="nt">arista.cvp.cv_configlet</span><span class="p">:</span>
-        <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&quot;{{CVP_FACTS.ansible_facts}}&quot;</span>
-        <span class="nt">configlets</span><span class="p">:</span> <span class="s">&quot;{{CVP_CONFIGLETS}}&quot;</span>
-        <span class="nt">configlet_filter</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;_TESTING_&quot;</span><span class="p p-Indicator">]</span>
+<p>As modules of this collection are based on <a href="https://docs.ansible.com/ansible/latest/plugins/connection/httpapi.html"><code>HTTPAPI</code> connection plugin</a>, authentication elements shall be declared using this plugin mechanism and are automatically shared with <code>arista.cvp.cv_*</code> modules.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[development]</span>
+<span class="na">cvp_foster  ansible_host</span><span class="o">=</span> <span class="s">10.90.224.122 ansible_httpapi_host=10.90.224.122</span>
+
+<span class="k">[development:vars]</span>
+<span class="na">ansible_connection</span><span class="o">=</span><span class="s">httpapi</span>
+<span class="na">ansible_httpapi_use_ssl</span><span class="o">=</span><span class="s">True</span>
+<span class="na">ansible_httpapi_validate_certs</span><span class="o">=</span><span class="s">False</span>
+<span class="na">ansible_user</span><span class="o">=</span><span class="s">cvpadmin</span>
+<span class="na">ansible_password</span><span class="o">=</span><span class="s">ansible</span>
+<span class="na">ansible_network_os</span><span class="o">=</span><span class="s">eos</span>
+<span class="na">ansible_httpapi_port</span><span class="o">=</span><span class="s">443</span>
 </code></pre></div>
 
-<h3 id="configure-devices-on-cloudvision">Configure devices on CloudVision<a class="headerlink" href="#configure-devices-on-cloudvision" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Switch configuration</span>
-  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
-  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
-  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
-  <span class="nt">vars</span><span class="p">:</span>
-    <span class="nt">CVP_DEVICES</span><span class="p">:</span>
-      <span class="nt">DC1-SPINE1</span><span class="p">:</span>
-        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-SPINE1</span>
-        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_SPINES</span>
-        <span class="nt">configlets</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AVD_DC1-SPINE1</span>
-        <span class="nt">imageBundle</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-      <span class="nt">DC1-SPINE2</span><span class="p">:</span>
-        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1-SPINE2</span>
-        <span class="nt">parent_container</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_SPINES</span>
-        <span class="nt">configlets</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AVD_DC1-SPINE2</span>
-        <span class="nt">imageBundle</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-  <span class="nt">tasks</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Collecting</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">{{inventory_hostname}}.&#39;</span>
-      <span class="nt">arista.cvp.cv_facts</span><span class="p">:</span>
-      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CVP_FACTS</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Configure</span><span class="nv"> </span><span class="s">devices</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
-      <span class="nt">arista.cvp.cv_device</span><span class="p">:</span>
-        <span class="nt">devices</span><span class="p">:</span> <span class="s">&quot;{{CVP_DEVICES}}&quot;</span>
-        <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{CVP_FACTS.ansible_facts}}&#39;</span>
-        <span class="nt">device_filter</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;DC1&#39;</span><span class="p p-Indicator">]</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
-</code></pre></div>
-
-<p>More documentation on <a href="https://github.com/aristanetworks/ansible-cvp">github repository</a></p>
+<p>As modules of this collection are based on <a href="https://docs.ansible.com/ansible/latest/plugins/connection/httpapi.html"><code>HTTPAPI</code> connection plugin</a>, authentication elements shall be declared using this plugin mechanism and are automatically shared with <code>arista.cvp.cv_*</code> modules.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h2>
 <p>Project is published under <a href="LICENSE">Apache License</a>.</p>
 <h2 id="ask-a-question">Ask a question<a class="headerlink" href="#ask-a-question" title="Permanent link">#</a></h2>
