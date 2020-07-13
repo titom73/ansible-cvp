@@ -221,6 +221,18 @@
 
 
   <li class="md-nav__item">
+    <a href="./" title="Use docker environment" class="md-nav__link">
+      Use docker environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../setup-galaxy/" title="Installation using ansible-galaxy" class="md-nav__link">
       Installation using ansible-galaxy
     </a>
@@ -280,26 +292,28 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python-virtual-environment" class="md-nav__link">
-    Python Virtual Environment
+  <a href="#step-by-step-installation-process" class="md-nav__link">
+    Step by step installation process
   </a>
-  
-    <nav class="md-nav" aria-label="Python Virtual Environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-python3-virtual-environment" class="md-nav__link">
-    Install Python3 Virtual Environment
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#one-liner-installation" class="md-nav__link">
+    One liner installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-local-environment" class="md-nav__link">
+    Build local environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Build local environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#docker-container-for-ansible-testing-and-development" class="md-nav__link">
     Docker Container for Ansible Testing and Development
   </a>
@@ -308,22 +322,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#build-docker-container" class="md-nav__link">
-    Build Docker Container
+  <a href="#development-containers" class="md-nav__link">
+    Development containers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-docker-container" class="md-nav__link">
-    Run Docker Container
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stop-docker-container" class="md-nav__link">
-    Stop Docker Container
+  <a href="#container-commands" class="md-nav__link">
+    Container commands
   </a>
   
 </li>
@@ -332,11 +339,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started-script" class="md-nav__link">
-    Getting started Script
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -612,26 +617,28 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python-virtual-environment" class="md-nav__link">
-    Python Virtual Environment
+  <a href="#step-by-step-installation-process" class="md-nav__link">
+    Step by step installation process
   </a>
-  
-    <nav class="md-nav" aria-label="Python Virtual Environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-python3-virtual-environment" class="md-nav__link">
-    Install Python3 Virtual Environment
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#one-liner-installation" class="md-nav__link">
+    One liner installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-local-environment" class="md-nav__link">
+    Build local environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Build local environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#docker-container-for-ansible-testing-and-development" class="md-nav__link">
     Docker Container for Ansible Testing and Development
   </a>
@@ -640,22 +647,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#build-docker-container" class="md-nav__link">
-    Build Docker Container
+  <a href="#development-containers" class="md-nav__link">
+    Development containers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-docker-container" class="md-nav__link">
-    Run Docker Container
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stop-docker-container" class="md-nav__link">
-    Stop Docker Container
+  <a href="#container-commands" class="md-nav__link">
+    Container commands
   </a>
   
 </li>
@@ -664,11 +664,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started-script" class="md-nav__link">
-    Getting started Script
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -700,73 +698,93 @@ For example, see the file/folder structure below.</p>
 <div class="highlight"><pre><span></span><code>├── git_projects
 │   ├── ansible-avd
 │   ├── ansible-cvp
-│   ├── ansible-eos
-│   ├── eve-ng-lab
-│   ├── netdevops-examples
-│   ├── Dockerfile
+│   ├── ansible-avd-cloudvision-demo
+│   ├── &lt;your-own-test-folder&gt;
 │   ├── Makefile
-│   ├── requirements-dev.txt
-│   ├── requirements.txt
+...
 </code></pre></div>
 
-<h2 id="python-virtual-environment">Python Virtual Environment<a class="headerlink" href="#python-virtual-environment" title="Permanent link">#</a></h2>
-<h3 id="install-python3-virtual-environment">Install Python3 Virtual Environment<a class="headerlink" href="#install-python3-virtual-environment" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># install virtualenv via pip3</span>
-$ sudo pip3 install virtualenv
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure Python virtual environment</span>
-$ virtualenv -p python3 .venv
-$ <span class="nb">source</span> .venv/bin/activate
-
-<span class="c1"># Install Python requirements</span>
-$ pip install -r requirements.txt
-</code></pre></div>
-
-<h2 id="docker-container-for-ansible-testing-and-development">Docker Container for Ansible Testing and Development<a class="headerlink" href="#docker-container-for-ansible-testing-and-development" title="Permanent link">#</a></h2>
-<p>The docker container approach for development can be used to ensure that everybody is using the same development environment while still being flexible enough to use the repo you are making changes in. You can inspect the Dockerfile to see what packages have been installed.
-The container will mount the current working directory, so you can work with your local files.</p>
-<p>The ansible version is passed in with the docker build command using <strong><em>ANSIBLE</em></strong> variable.  If the <strong><em>ANSIBLE</em></strong> variable is not used the Dockerfile will by default set the ansible version to 2.9.2</p>
-<p>Before you can use a container, you must install Docker CE on your workstation: <a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
-<h3 id="build-docker-container">Build Docker Container<a class="headerlink" href="#build-docker-container" title="Permanent link">#</a></h3>
-<p>In addition to the <code>Dockerfile</code>, a <code>Makefile</code> is provided to help provision the container a single step. A user can pass the ansible version number to make and alter the default ansible-version number.  This allows a user to setup multiple containers running differing versions of ansible.</p>
-<div class="highlight"><pre><span></span><code>make build                        <span class="c1"># Use default version of Ansible</span>
-make build <span class="nv">ANSIBLE_VERSION</span><span class="o">=</span><span class="m">2</span>.9.5  <span class="c1"># Explicitly set Ansible version to 2.9.5</span>
-
-docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-ansible_avd         <span class="m">2</span>.9.6               5291937a2214        <span class="m">33</span> minutes ago      795MB
-ansible_avd         <span class="m">2</span>.9.5               27f648c4c249        <span class="m">46</span> hours ago        912MB
-</code></pre></div>
-
-<h3 id="run-docker-container">Run Docker Container<a class="headerlink" href="#run-docker-container" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>make run                        <span class="c1"># Use default version of Ansible</span>
-make run <span class="nv">ANSIBLE_VERSION</span><span class="o">=</span><span class="m">2</span>.9.5  <span class="c1"># Explicitly set Ansible version to 2.9.5</span>
-
-docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-e682058d7dae        ansible_avd:2.9.5   <span class="s2">&quot;/bin/sh&quot;</span>           <span class="m">6</span> seconds ago       Up <span class="m">5</span> seconds                            ansible_avd_2.9.5
-540a8e778907        ansible_avd:2.9.6   <span class="s2">&quot;/bin/sh&quot;</span>           <span class="m">38</span> seconds ago      Up <span class="m">37</span> seconds                           ansible_avd_2.9.6
-</code></pre></div>
-
-<h3 id="stop-docker-container">Stop Docker Container<a class="headerlink" href="#stop-docker-container" title="Permanent link">#</a></h3>
-<p>Another make target (clean) has been created to stop and remove the container once the user is finished with it.</p>
-<div class="highlight"><pre><span></span><code>make clean                       <span class="c1"># Clean default version of Ansible</span>
-make clean <span class="nv">ANSIBLE_VERSION</span><span class="o">=</span><span class="m">2</span>.9.5 <span class="c1"># Explicitly clean Ansible version to 2.9.5</span>
-
-docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-</code></pre></div>
-
-<h2 id="getting-started-script">Getting started Script<a class="headerlink" href="#getting-started-script" title="Permanent link">#</a></h2>
+<h2 id="step-by-step-installation-process">Step by step installation process<a class="headerlink" href="#step-by-step-installation-process" title="Permanent link">#</a></h2>
+<p>This process is similar to <a href="https://github.com/aristanetworks/ansible-avd">ansible-avd collection</a>. It means if you use AVD, this step is not required.</p>
 <div class="highlight"><pre><span></span><code>mkdir git_projects
 <span class="nb">cd</span> git_projects
 git clone https://github.com/aristanetworks/ansible-avd.git
 git clone https://github.com/aristanetworks/ansible-cvp.git
-git clone https://github.com/aristanetworks/netdevops-examples.git
-cp ansible-avd/development/* ./
-make build
+git clone https://github.com/arista-netdevops-community/ansible-avd-cloudvision-demo.git
+cp ansible-cvp/development/Makefile ./
 make run
+</code></pre></div>
+
+<h2 id="one-liner-installation">One liner installation<a class="headerlink" href="#one-liner-installation" title="Permanent link">#</a></h2>
+<p><a href="https://github.com/aristanetworks/ansible-cvp/blob/devel/development/install.sh">One liner script</a> to setup a development environment. it does following actions:</p>
+<ul>
+<li>Create local folder for development</li>
+<li>Instantiate a local git repository (no remote)</li>
+<li>Clone AVD and CVP collections</li>
+<li>Deploy Makefile</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/aristanetworks/ansible-cvp/devel/development/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<h2 id="build-local-environment">Build local environment<a class="headerlink" href="#build-local-environment" title="Permanent link">#</a></h2>
+<h3 id="docker-container-for-ansible-testing-and-development">Docker Container for Ansible Testing and Development<a class="headerlink" href="#docker-container-for-ansible-testing-and-development" title="Permanent link">#</a></h3>
+<p>The docker container approach for development can be used to ensure that everybody is using the same development environment while still being flexible enough to use the repo you are making changes in. You can inspect the Dockerfile to see what packages have been installed.
+The container will mount the current working directory, so you can work with your local files.</p>
+<p>The ansible version is passed in with the docker build command using <strong><em>ANSIBLE</em></strong> variable.  If the <strong><em>ANSIBLE</em></strong> variable is not used the Dockerfile will by default set the ansible version to 2.9.2</p>
+<p>Before you can use a container, you must install <a href="https://www.docker.com/products/docker-desktop"><strong>Docker CE</strong></a> and <a href="https://docs.docker.com/compose/"><strong>docker-compose</strong></a> on your workstation.</p>
+<h4 id="development-containers">Development containers<a class="headerlink" href="#development-containers" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://hub.docker.com/repository/docker/avdteam/base">Ansible shell</a>: provide a built-in container with all AVD and CVP requirements already installed.</li>
+<li><a href="https://github.com/titom73/docker-mkdocs">MKDOCS</a> for documentation update: Run MKDOCS in a container and expose port <code>8000</code> to test and validate markdown rendering for AVD site.</li>
+</ul>
+<h4 id="container-commands">Container commands<a class="headerlink" href="#container-commands" title="Permanent link">#</a></h4>
+<p>In this folder you have a <a href="./Makefile"><code>Makefile</code></a> providing a list of commands to start a development environment:</p>
+<ul>
+<li><code>run</code>: Start a shell within a container and local folder mounted in <code>/projects</code></li>
+<li><code>dev-start</code>: Start a stack of containers based on docker-compose: 1 container for ansible playbooks and 1 container for mkdocs</li>
+<li><code>dev-stop</code>: Stop compose stack and remove containers.</li>
+<li><code>dev-run</code>: Connect to ansible container to run your test playbooks.</li>
+<li><code>dev-reload</code>: Run stop and start.</li>
+</ul>
+<p>If you want to test a specific ansible version, you can refer to this <a href="https://github.com/arista-netdevops-community/docker-avd-base/blob/master/USAGE.md">dedicated page</a> to start your own docker image. You can also use following make command: <code>make ANSIBLE_VERSION=2.9.3 run</code></p>
+<p>Since docker image is now automatically published on <a href="https://hub.docker.com/repository/docker/avdteam/base"><strong>docker-hub</strong></a>, a dedicated repository is available on <a href="https://github.com/arista-netdevops-community/docker-avd-base"><strong>Arista Netdevops Community</strong></a>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start development stack</span>
+$ make dev-start
+docker-compose -f ansible-cvp/development/docker-compose.yml up -d
+Creating development_webdoc_1  ... <span class="k">done</span>
+Creating development_ansible_1 ... <span class="k">done</span>
+
+<span class="c1"># List containers started with stack</span>
+$ docker-compose -f ansible-avd/development/docker-compose.yml ps
+        Name                       Command               State           Ports
+---------------------------------------------------------------------------------------
+development_ansible_1   /bin/sh -c <span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>  ...   Up
+development_webdoc_1    sh -c pip install -r ansib ...   Up      <span class="m">0</span>.0.0.0:8000-&gt;8000/tcp
+
+<span class="c1"># Get a shell with ansible</span>
+$ make dev-run
+docker-compose -f ansible-cvp/development/docker-compose.yml <span class="nb">exec</span> ansible zsh
+Agent pid <span class="m">52</span>
+➜  /projects
+
+<span class="c1"># Test MKDOCS access</span>
+$ curl -s http://127.0.0.1:8001 <span class="p">|</span> head -n <span class="m">10</span>
+&lt;!doctype html&gt;
+&lt;html <span class="nv">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;no-js&quot;</span>&gt;
+  &lt;head&gt;
+
+      &lt;meta <span class="nv">charset</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>&gt;
+      &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;viewport&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;width=device-width,initial-scale=1&quot;</span>&gt;
+
+<span class="c1"># Stop development stack</span>
+$ make dev-stop
+docker-compose -f ansible-cvp/development/docker-compose.yml <span class="nb">kill</span> <span class="o">&amp;&amp;</span><span class="se">\</span>
+        docker-compose -f ansible-cvp/development/docker-compose.yml rm -f
+Killing development_ansible_1 ... <span class="k">done</span>
+Killing development_webdoc_1  ... <span class="k">done</span>
+Going to remove development_ansible_1, development_webdoc_1
+Removing development_ansible_1 ... <span class="k">done</span>
+Removing development_webdoc_1  ... <span class="k">done</span>
 </code></pre></div>
                 
               
