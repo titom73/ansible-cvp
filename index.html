@@ -617,6 +617,7 @@
 </ul>
 <p><strong>Additional Python Libraries required:</strong></p>
 <ul>
+<li><a href="https://github.com/aristanetworks/cvprac">cvprac</a> version <code>1.0.4</code></li>
 <li>requests &gt;= <code>2.22.0</code></li>
 <li>treelib version <code>1.5.5</code> or later</li>
 </ul>
@@ -625,13 +626,14 @@
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code>pip install requests&gt;<span class="o">=</span><span class="m">2</span>.22.0
 pip install treelib&gt;<span class="o">=</span><span class="m">1</span>.5.5
+pip install <span class="nv">cvprac</span><span class="o">==</span><span class="m">1</span>.0.4
 </code></pre></div>
 
 <p>Ansible galaxy hosts all stable version of this collection. Installation from ansible-galaxy is the most convenient approach for consuming <code>arista.cvp</code> content</p>
 <div class="highlight"><pre><span></span><code>$ ansible-galaxy collection install arista.cvp
 Process install dependency map
 Starting collection install process
-Installing <span class="s1">&#39;arista.cvp:1.0.3&#39;</span> to <span class="s1">&#39;~/.ansible/collections/ansible_collections/arista/cvp&#39;</span>
+Installing <span class="s1">&#39;arista.cvp:1.1.0&#39;</span> to <span class="s1">&#39;~/.ansible/collections/ansible_collections/arista/cvp&#39;</span>
 </code></pre></div>
 
 <h2 id="modules-overview">Modules overview<a class="headerlink" href="#modules-overview" title="Permanent link">#</a></h2>
