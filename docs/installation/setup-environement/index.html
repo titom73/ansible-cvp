@@ -19,7 +19,7 @@
     
     
       
-        <title>Installation using git - Arista CVP collection</title>
+        <title>Configure your local environment - Arista CVP collection</title>
       
     
     
@@ -54,7 +54,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation-using-git" class="md-skip">
+        <a href="#setup-ansible-avd-environment" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Installation using git
+              Configure your local environment
             
           </span>
         </div>
@@ -243,18 +243,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../setup-environement/" title="Configure your local environment" class="md-nav__link">
-      Configure your local environment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -266,14 +254,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Installation using git
+        Configure your local environment
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
         </span>
       </label>
     
-    <a href="./" title="Installation using git" class="md-nav__link md-nav__link--active">
-      Installation using git
+    <a href="./" title="Configure your local environment" class="md-nav__link md-nav__link--active">
+      Configure your local environment
     </a>
     
       
@@ -292,23 +280,77 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#use-git-as-source-of-collection" class="md-nav__link">
-    Use Git as source of collection
+  <a href="#ansible-runner-requirements" class="md-nav__link">
+    Ansible runner requirements
   </a>
   
-    <nav class="md-nav" aria-label="Use Git as source of collection">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-local-folder-structure" class="md-nav__link">
+    Create local folder structure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-docker-as-avd-shell" class="md-nav__link">
+    Use docker as AVD shell
+  </a>
+  
+    <nav class="md-nav" aria-label="Use docker as AVD shell">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-repository-locally" class="md-nav__link">
-    Get repository locally
+  <a href="#avd-environment-commands" class="md-nav__link">
+    AVD environment commands
+  </a>
+  
+    <nav class="md-nav" aria-label="AVD environment commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands-for-docker-compose" class="md-nav__link">
+    Commands for docker-compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands-for-docker-only" class="md-nav__link">
+    Commands for docker only
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for docker only">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-for-image-management" class="md-nav__link">
+    Command for image management
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-avd-shell" class="md-nav__link">
+    Run AVD shell
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#update-your-ansiblecfg" class="md-nav__link">
-    Update your ansible.cfg
+  <a href="#get-latest-image-of-avd-container" class="md-nav__link">
+    Get latest image of AVD container
   </a>
   
 </li>
@@ -319,29 +361,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-install-collection-from-git" class="md-nav__link">
-    Build &amp; install collection from git
+  <a href="#using-python-3-virtual-environment-feature" class="md-nav__link">
+    Using Python 3 Virtual Environment feature
   </a>
-  
-    <nav class="md-nav" aria-label="Build &amp; install collection from git">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#clone-repository" class="md-nav__link">
-    Clone repository
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-and-install-collection" class="md-nav__link">
-    Build and install collection
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -349,6 +371,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup-git/" title="Installation using git" class="md-nav__link">
+      Installation using git
+    </a>
   </li>
 
         
@@ -671,23 +705,77 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#use-git-as-source-of-collection" class="md-nav__link">
-    Use Git as source of collection
+  <a href="#ansible-runner-requirements" class="md-nav__link">
+    Ansible runner requirements
   </a>
   
-    <nav class="md-nav" aria-label="Use Git as source of collection">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-local-folder-structure" class="md-nav__link">
+    Create local folder structure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-docker-as-avd-shell" class="md-nav__link">
+    Use docker as AVD shell
+  </a>
+  
+    <nav class="md-nav" aria-label="Use docker as AVD shell">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-repository-locally" class="md-nav__link">
-    Get repository locally
+  <a href="#avd-environment-commands" class="md-nav__link">
+    AVD environment commands
+  </a>
+  
+    <nav class="md-nav" aria-label="AVD environment commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands-for-docker-compose" class="md-nav__link">
+    Commands for docker-compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands-for-docker-only" class="md-nav__link">
+    Commands for docker only
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for docker only">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-for-image-management" class="md-nav__link">
+    Command for image management
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-avd-shell" class="md-nav__link">
+    Run AVD shell
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#update-your-ansiblecfg" class="md-nav__link">
-    Update your ansible.cfg
+  <a href="#get-latest-image-of-avd-container" class="md-nav__link">
+    Get latest image of AVD container
   </a>
   
 </li>
@@ -698,29 +786,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-install-collection-from-git" class="md-nav__link">
-    Build &amp; install collection from git
+  <a href="#using-python-3-virtual-environment-feature" class="md-nav__link">
+    Using Python 3 Virtual Environment feature
   </a>
-  
-    <nav class="md-nav" aria-label="Build &amp; install collection from git">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#clone-repository" class="md-nav__link">
-    Clone repository
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-and-install-collection" class="md-nav__link">
-    Build and install collection
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -736,7 +804,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aristanetworks/ansible-cvp/edit/master/docs/docs/installation/setup-git.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aristanetworks/ansible-cvp/edit/master/docs/docs/installation/setup-environement.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -744,47 +812,182 @@
                   
                 
                 
-                <h1 id="installation-using-git">Installation using GIT<a class="headerlink" href="#installation-using-git" title="Permanent link">#</a></h1>
-<p>Using GIT as source of collection in ansible provides an easy way to implement all the changes once they are part of the development branch without waiting for a new tagged version shipped to ansible-galaxy.</p>
-<h2 id="use-git-as-source-of-collection">Use Git as source of collection<a class="headerlink" href="#use-git-as-source-of-collection" title="Permanent link">#</a></h2>
-<p>In this setup, git repository will be used by ansible as collection. It is useful when working on feature development as we can change git branch and test code lively.</p>
-<h3 id="get-repository-locally">Get repository locally<a class="headerlink" href="#get-repository-locally" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Clone repository</span>
+                <h1 id="setup-ansible-avd-environment">Setup Ansible AVD environment<a class="headerlink" href="#setup-ansible-avd-environment" title="Permanent link">#</a></h1>
+<p>Two methods can be used get Ansible up and running quickly with all the requirements to leverage <strong>ansible-avd</strong>:
+A Python Virtual Environment or <a href="https://hub.docker.com/repository/docker/avdteam/base">Docker container</a>.</p>
+<p>In both scenario, this document will leverage git approach to create a local environment with collections installed in their respective folders and additional folders for all your content. It means, all examples will be based on the following folder structure:</p>
+<div class="highlight"><pre><span></span><code>├── git_projects
+│   ├── ansible-avd
+│   ├── ansible-cvp
+│   ├── ansible-avd-cloudvision-demo
+│   ├── Makefile
+</code></pre></div>
+
+<h2 id="ansible-runner-requirements">Ansible runner requirements<a class="headerlink" href="#ansible-runner-requirements" title="Permanent link">#</a></h2>
+<p>As described in <a href="../requirements/">requirement page</a>, your runner should run Python 3.6.8 or Docker engine with <a href="https://docs.docker.com/compose/install/"><code>docker-compose</code></a>.</p>
+<h2 id="create-local-folder-structure">Create local folder structure<a class="headerlink" href="#create-local-folder-structure" title="Permanent link">#</a></h2>
+<p>To build local folder structure you manually run all the following commands to git clone <a href="https://github.com/aristanetworks/ansible-avd">ansible-avd</a>, <a href="https://github.com/aristanetworks/ansible-cvp">ansible-cvp collection</a> and a <a href="https://github.com/arista-netdevops-community/ansible-avd-cloudvision-demo">repository with demo content</a></p>
+<p>In addition to this 3 <code>git clone</code>, you can also deployed a <a href="https://github.com/aristanetworks/ansible-avd/blob/devel/development/Makefile">Makefile</a> built to provide some shortcut we will discuss in a second stage.</p>
+<div class="highlight"><pre><span></span><code>$ mkdir git_projects
+
+$ <span class="nb">cd</span> git_projects
+
+$ git clone https://github.com/aristanetworks/ansible-avd.git
 $ git clone https://github.com/aristanetworks/ansible-cvp.git
+$ git clone https://github.com/arista-netdevops-community/ansible-avd-cloudvision-demo.git
 
-<span class="c1"># Move to git folder</span>
-<span class="nb">cd</span> ansible-cvp
+<span class="c1"># Copy Makefile at the root position</span>
+$ cp ansible-avd/development/Makefile ./
+$ make shell
 </code></pre></div>
 
-<h3 id="update-your-ansiblecfg">Update your ansible.cfg<a class="headerlink" href="#update-your-ansiblecfg" title="Permanent link">#</a></h3>
-<p>In your project, update your <code>ansible.cfg</code> file to point <strong>collection_paths</strong> to your local version of ansible-cvp</p>
+<p>Or you can use a one-liner script available in ansible-avd repository to create this structure for you. This script does following actions:</p>
 <ul>
-<li>Get full path to your newly cloned AVD repository.</li>
+<li>Create local folder for development</li>
+<li>Instantiate a local git repository (no remote)</li>
+<li>Clone AVD and CVP collections</li>
+<li>Deploy Makefile</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get your current location</span>
-$ <span class="nb">pwd</span>
-/path/to/ansible/avd/collection_repository
+<div class="highlight"><pre><span></span><code>$ sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://get.avd.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 
+<p>Because we are cloning ansible collection using git, it is recommended to read documentation about <a href="../setup-git/#update-your-ansiblecfg">how to setup ansible to use collection based on git clone</a>.</p>
+<h2 id="use-docker-as-avd-shell">Use docker as AVD shell<a class="headerlink" href="#use-docker-as-avd-shell" title="Permanent link">#</a></h2>
+<p>In this approach Docker container will be leveraged to provides all the AVD requirements and playbooks and collection will be shared from your localhost to the container.</p>
+<p>This approach make the run process easier as all libraries are pre-configured in container and you can continue to use your preferred text editor to edit and build your content.</p>
+<p>Considering you have deployed <a href="https://github.com/aristanetworks/ansible-avd/blob/devel/development/Makefile">Makefile</a> described in previous section, all the outputs will provide native docker command and the Make command.</p>
+<h3 id="avd-environment-commands">AVD environment commands<a class="headerlink" href="#avd-environment-commands" title="Permanent link">#</a></h3>
+<p>When using installation script to create your own AVD environment, a <a href="https://github.com/aristanetworks/ansible-avd/blob/devel/development/Makefile"><code>Makefile</code></a> is deployed under <code>./ansible-arista</code> to automate some common commands:</p>
+<div class="highlight"><pre><span></span><code>$ make &lt;your command&gt;
+</code></pre></div>
+
+<h4 id="commands-for-docker-compose">Commands for docker-compose<a class="headerlink" href="#commands-for-docker-compose" title="Permanent link">#</a></h4>
 <ul>
-<li>Configure your project to use AVD repository as source of collections:</li>
+<li><code>dev-start</code>: Start docker compose stack to develop with AVD and CVP collection (alias: <code>start</code>)<ul>
+<li>Deploy an <a href="https://hub.docker.com/repository/docker/titom73/mkdocs">mkdoc</a> instance to expose AVD documentation with live reload for development purposes.</li>
+<li>Deploy an <a href="https://hub.docker.com/repository/docker/titom73/mkdocs">mkdoc</a> instance to expose CVP documentation with live reload for development purposes.</li>
+<li>Deploy an <a href="https://hub.docker.com/repository/docker/avdteam/base">AVD runner</a> with a pseudo terminal connected to shell for ansible execution</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1"># Update your ansible.cfg in your playbook project</span>
-$ vim ansible.cfg
-<span class="nv">collections_paths</span> <span class="o">=</span> /path/to/ansible/cvp/collection_repository
+</li>
+<li><code>dev-stop</code>: Stop docker compose stack and remove containers (alias: <code>stop</code>)</li>
+<li><code>dev-run</code>: Run a shell attached to ansible container (alias: <code>shell</code>)</li>
+<li><code>dev-reload</code>: Stop and Start docker-compose stack</li>
+</ul>
+<h3 id="commands-for-docker-only">Commands for docker only<a class="headerlink" href="#commands-for-docker-only" title="Permanent link">#</a></h3>
+<ul>
+<li><code>run</code>: Run a <a href="https://hub.docker.com/repository/docker/avdteam/base">docker container</a> with local folder mounted under <code>/projects</code>. This command supports some option to test development version like:<ul>
+<li><code>ANSIBLE_VERSION</code>: Specific version of ansible to install during container startup.</li>
+<li><code>PIP_REQ</code>: Specific pip requirements file to install during container startup.</li>
+</ul>
+</li>
+</ul>
+<h4 id="command-for-image-management">Command for image management<a class="headerlink" href="#command-for-image-management" title="Permanent link">#</a></h4>
+<ul>
+<li><code>update</code>: Get latest version of <a href="https://hub.docker.com/repository/docker/avdteam/base">AVD runner</a> and <a href="https://hub.docker.com/repository/docker/titom73/mkdocs">mkdoc</a> servers</li>
+<li><code>clean</code>: Remove avd image from local repository</li>
+</ul>
+<h3 id="run-avd-shell">Run AVD shell<a class="headerlink" href="#run-avd-shell" title="Permanent link">#</a></h3>
+<p>We are going to start a <a href="https://hub.docker.com/repository/docker/avdteam/base">new container</a> running ansible with all the python requirements and mount local folder under <code>/projects</code>. if image is missing, docker will pull out image for you automatically.</p>
+<div class="highlight"><pre><span></span><code>$ docker run --rm -it -v <span class="k">$(</span>PWD<span class="k">)</span>/:/projects avdteam/base:3.6
+Unable to find image <span class="s1">&#39;avdteam/base:3.6&#39;</span> locally
+<span class="m">3</span>.6: Pulling from avdteam/base
+bf5952930446: Already exists
+385bb58d08e6: Already exists
+f59c6df69726: Already exists
+cc14d0cfa632: Already exists
+f4eba3bd5be8: Already exists
+55c6a5feb373: Already exists
+83464a988ea4: Pull <span class="nb">complete</span>
+9b675b85887d: Pull <span class="nb">complete</span>
+9cce9aa068f4: Pull <span class="nb">complete</span>
+a49dbba0fea8: Pull <span class="nb">complete</span>
+793f98fe2265: Pull <span class="nb">complete</span>
+Digest: sha256:ead3ef030caa6caeafd6ddbfd31ce935da26b66914096c9543d9a44cca993dfd
+Status: Downloaded newer image <span class="k">for</span> avdteam/base:3.6
+Agent pid <span class="m">45</span>
+➜  /projects
 </code></pre></div>
 
-<h2 id="build-install-collection-from-git">Build &amp; install collection from git<a class="headerlink" href="#build-install-collection-from-git" title="Permanent link">#</a></h2>
-<p>In this approach, an ansible collection package is built from current git version and installed locally.</p>
-<h3 id="clone-repository">Clone repository<a class="headerlink" href="#clone-repository" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>$ git clone https://github.com/aristanetworks/ansible-cvp.git
-$ <span class="nb">cd</span> ansible-avd
+<p>You can use a Make command to run exact same set of actions:</p>
+<div class="highlight"><pre><span></span><code>$ make run
+Unable to find image <span class="s1">&#39;avdteam/base:3.6&#39;</span> locally
+<span class="m">3</span>.6: Pulling from avdteam/base
+bf5952930446: Already exists
+385bb58d08e6: Already exists
+f59c6df69726: Already exists
+cc14d0cfa632: Already exists
+f4eba3bd5be8: Already exists
+55c6a5feb373: Already exists
+83464a988ea4: Pull <span class="nb">complete</span>
+9b675b85887d: Pull <span class="nb">complete</span>
+9cce9aa068f4: Pull <span class="nb">complete</span>
+a49dbba0fea8: Pull <span class="nb">complete</span>
+793f98fe2265: Pull <span class="nb">complete</span>
+Digest: sha256:ead3ef030caa6caeafd6ddbfd31ce935da26b66914096c9543d9a44cca993dfd
+Status: Downloaded newer image <span class="k">for</span> avdteam/base:3.6
+Agent pid <span class="m">45</span>
+➜  /projects
 </code></pre></div>
 
-<h3 id="build-and-install-collection">Build and install collection<a class="headerlink" href="#build-and-install-collection" title="Permanent link">#</a></h3>
-<p>This section should be used only to test collection packaging and to create an offline package to ship on your internal resources if required.</p>
-<div class="highlight"><pre><span></span><code>$ ansible-galaxy collection build --force ansible_collections/arista/avd
-$ ansible-galaxy collection install arista-cvp-&lt;VERSION&gt;.tar.gz
+<p>Then you can move to your content folder as structure remains the same:</p>
+<div class="highlight"><pre><span></span><code>➜  /projects ls -l
+drwxr-xr-x <span class="m">24</span> root root  <span class="m">768</span> Sep  <span class="m">4</span> <span class="m">15</span>:47 ansible-avd
+drwxr-xr-x <span class="m">24</span> root root  <span class="m">768</span> Sep  <span class="m">4</span> <span class="m">15</span>:47 ansible-cvp
+drwxr-xr-x <span class="m">24</span> root root  <span class="m">768</span> Sep  <span class="m">4</span> <span class="m">15</span>:47 ansible-avd-cloudvision-demo
+drwxr-xr-x <span class="m">24</span> root root  <span class="m">768</span> Sep  <span class="m">4</span> <span class="m">15</span>:47 Makefile
+</code></pre></div>
+
+<p>You can validate everything is setup correctly:</p>
+<div class="highlight"><pre><span></span><code>➜  /projects python --version
+Python <span class="m">3</span>.6.12
+
+➜  /projects ansible --version
+ansible <span class="m">2</span>.9.6
+  config <span class="nv">file</span> <span class="o">=</span> None
+  configured module search <span class="nv">path</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;/root/.ansible/plugins/modules&#39;</span>, <span class="s1">&#39;/usr/share/ansible/plugins/modules&#39;</span><span class="o">]</span>
+  ansible python module <span class="nv">location</span> <span class="o">=</span> /root/.local/lib/python3.6/site-packages/ansible
+  executable <span class="nv">location</span> <span class="o">=</span> /root/.local/bin/ansible
+  python <span class="nv">version</span> <span class="o">=</span> <span class="m">3</span>.6.12 <span class="o">(</span>default, Aug <span class="m">18</span> <span class="m">2020</span>, <span class="m">04</span>:28:43<span class="o">)</span> <span class="o">[</span>GCC <span class="m">8</span>.3.0<span class="o">]</span>
+</code></pre></div>
+
+<p>To exit container, just use <code>exit</code></p>
+<div class="highlight"><pre><span></span><code>➜  /projects <span class="nb">exit</span>
+$
+</code></pre></div>
+
+<h3 id="get-latest-image-of-avd-container">Get latest image of AVD container<a class="headerlink" href="#get-latest-image-of-avd-container" title="Permanent link">#</a></h3>
+<p>Time to time, AVD container is updated to reflect some changes in either python requirements or ansible version. Because your docker engine won&rsquo;t automatically get latest version, it might be important to update manually this container:</p>
+<div class="highlight"><pre><span></span><code>$ docker pull avdteam/base:3.6
+latest: Pulling from avdteam/base
+8a29a15cefae: Already exists
+95df01e08bce: Downloading <span class="o">[==============================================</span>&gt;    <span class="o">]</span>  <span class="m">33</span>.55MB/36.35MB
+512a8a4d71f7: Downloading <span class="o">[=========================================</span>&gt;         <span class="o">]</span>   <span class="m">45</span>.1MB/53.85MB
+209c1657264b: Download <span class="nb">complete</span>
+bd6eece0221e: Downloading <span class="o">[===================</span>&gt;                               <span class="o">]</span>  <span class="m">52</span>.04MB/132.1MB
+036c486feecb: Waiting
+</code></pre></div>
+
+<p>Your environment is now ready and you can start to build your own project leveraging ansible-avd and ansible-cvp collections.</p>
+<h2 id="using-python-3-virtual-environment-feature">Using Python 3 Virtual Environment feature<a class="headerlink" href="#using-python-3-virtual-environment-feature" title="Permanent link">#</a></h2>
+<p>This section describes how to configure python to run ansible and AVD.</p>
+<p>As a requirement, we consider python3 as default python interpreter and pip3 as package manager for python3. Some differences can be spotted depending on your own operating system and how they package python.</p>
+<p><strong>Disclaimer</strong>: Not preferred method. if you are not an experienced user, please use docker approach.</p>
+<p>In a shell, install <code>virtualenv</code> package:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># install virtualenv via pip3</span>
+$ sudo pip3 install virtualenv
+</code></pre></div>
+
+<p>Create a dedicated virtual-environment where AVD will installed all required Python pakages:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">pwd</span>
+/home/user/git_projects
+
+<span class="c1"># Configure Python virtual environment</span>
+$ virtualenv -p python3 .venv
+$ <span class="nb">source</span> .venv/bin/activate
+
+<span class="c1"># Install Python requirements</span>
+$ pip3 install -r ansible-avd/development/requirements.txt
+...
 </code></pre></div>
                 
               
@@ -804,7 +1007,7 @@ $ ansible-galaxy collection install arista-cvp-&lt;VERSION&gt;.tar.gz
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../setup-environement/" title="Configure your local environment" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../requirements/" title="Requirements" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -813,19 +1016,19 @@ $ ansible-galaxy collection install arista-cvp-&lt;VERSION&gt;.tar.gz
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Configure your local environment
+                Requirements
               </div>
             </div>
           </a>
         
         
-          <a href="../setup-galaxy/" title="Installation using ansible-galaxy" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../setup-git/" title="Installation using git" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Installation using ansible-galaxy
+                Installation using git
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

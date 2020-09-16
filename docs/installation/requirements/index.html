@@ -31,13 +31,13 @@
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
-        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.material.css">
     
     
       
@@ -128,7 +128,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    Github
+    CVP on Github
   </div>
 </a>
       </div>
@@ -169,7 +169,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    Github
+    CVP on Github
   </div>
 </a>
     </div>
@@ -180,21 +180,45 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-1">
+    <label class="md-nav__link" for="nav-3">
       Installation
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Installation" data-md-level="1">
-      <label class="md-nav__title" for="nav-1">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -244,8 +268,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#arista-eos-version" class="md-nav__link">
+    Arista EOS version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#arista-cloudvision" class="md-nav__link">
-    Arista CloudVision
+    Arista Cloudvision
   </a>
   
 </li>
@@ -265,8 +296,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-requirements" class="md-nav__link">
-    Install requirements
+  <a href="#additional-python-libraries-required" class="md-nav__link">
+    Additional Python Libraries required
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Python Libraries required">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-requirements-installation" class="md-nav__link">
+    Python requirements installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-runner-requirements" class="md-nav__link">
+    Ansible runner requirements
   </a>
   
 </li>
@@ -284,20 +335,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../setup-docker/" title="Use docker environment" class="md-nav__link">
-      Use docker environment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../setup-galaxy/" title="Installation using ansible-galaxy" class="md-nav__link">
-      Installation using ansible-galaxy
+    <a href="../setup-environement/" title="Configure your local environment" class="md-nav__link">
+      Configure your local environment
     </a>
   </li>
 
@@ -310,6 +349,18 @@
   <li class="md-nav__item">
     <a href="../setup-git/" title="Installation using git" class="md-nav__link">
       Installation using git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup-galaxy/" title="Installation using ansible-galaxy" class="md-nav__link">
+      Installation using ansible-galaxy
     </a>
   </li>
 
@@ -336,30 +387,18 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
-      Getting Started
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Roles documentation
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Roles documentation" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -404,16 +443,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Modules documentation
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Modules documentation" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -494,20 +533,20 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
-      About
+    <label class="md-nav__link" for="nav-6">
+      External resources
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="About" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+    <nav class="md-nav" aria-label="External resources" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
-        About
+        External resources
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -518,11 +557,53 @@
 
 
   <li class="md-nav__item">
-    <a href="../../contributing/" title="Contribution Guide" class="md-nav__link">
-      Contribution Guide
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html" title="Ansible collection user guide" class="md-nav__link">
+      Ansible collection user guide
     </a>
   </li>
 
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/index.html" title="Ansible User guide" class="md-nav__link">
+      Ansible User guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      About
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
         
           
           
@@ -542,8 +623,8 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/aristanetworks/ansible-avd" title="Arista Validated Design" class="md-nav__link">
-      Arista Validated Design
+    <a href="https://www.avd.sh" title="Arista Validated Design Collection" class="md-nav__link">
+      Arista Validated Design Collection
     </a>
   </li>
 
@@ -554,7 +635,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/aristanetworks/netdevops-examples" title="Arista Automation Examples" class="md-nav__link">
+    <a href="https://aristanetworks.github.io/netdevops-examples/" title="Arista Automation Examples" class="md-nav__link">
       Arista Automation Examples
     </a>
   </li>
@@ -591,8 +672,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#arista-eos-version" class="md-nav__link">
+    Arista EOS version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#arista-cloudvision" class="md-nav__link">
-    Arista CloudVision
+    Arista Cloudvision
   </a>
   
 </li>
@@ -612,8 +700,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-requirements" class="md-nav__link">
-    Install requirements
+  <a href="#additional-python-libraries-required" class="md-nav__link">
+    Additional Python Libraries required
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Python Libraries required">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-requirements-installation" class="md-nav__link">
+    Python requirements installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-runner-requirements" class="md-nav__link">
+    Ansible runner requirements
   </a>
   
 </li>
@@ -639,33 +747,55 @@
                 
                 
                 <h1 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h1>
-<h2 id="arista-cloudvision">Arista CloudVision<a class="headerlink" href="#arista-cloudvision" title="Permanent link">#</a></h2>
-<p><strong>arista.cvp</strong> collection supports list of Cloudvision version as listed below:</p>
+<h2 id="arista-eos-version">Arista EOS version<a class="headerlink" href="#arista-eos-version" title="Permanent link">#</a></h2>
 <ul>
-<li><strong>CVP 2018.x.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>ansible-cvp 1.0.0</code></a></li>
-<li><strong>CVP 2019.x.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>ansible-cvp 1.0.0</code></a></li>
-<li><strong>CVP 2020.x.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.1.0"><code>ansible-cvp 1.1.0</code></a></li>
+<li>EOS <strong>4.21.8M</strong> or later</li>
+<li>Roles validated with eAPI transport -&gt; <code>ansible_connection: httpapi</code></li>
 </ul>
-<p>When a CVP version is supported starting a specific version, any upcoming version will support that version until a specific announcement was made.</p>
+<h2 id="arista-cloudvision">Arista Cloudvision<a class="headerlink" href="#arista-cloudvision" title="Permanent link">#</a></h2>
+<p><a href="https://www.arista.com/en/products/eos/eos-cloudvision">Cloudvision</a> instance must be supported by <a href="https://cvp.avd.sh/">Cloudvision ansible collection</a></p>
 <h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">#</a></h2>
 <ul>
-<li>Python 3.x</li>
-</ul>
-<p><strong>Additional Python Libraries required:</strong></p>
-<ul>
-<li>requests &gt;= <code>2.22.0</code></li>
-<li>treelib version <code>1.5.5</code> or later</li>
+<li>Python <strong>3.6.8</strong> or later</li>
 </ul>
 <h2 id="supported-ansible-versions">Supported Ansible Versions<a class="headerlink" href="#supported-ansible-versions" title="Permanent link">#</a></h2>
-<p>ansible 2.9 or later</p>
-<h2 id="install-requirements">Install requirements<a class="headerlink" href="#install-requirements" title="Permanent link">#</a></h2>
-<p>To install project&rsquo;s requirements, use <code>pip</code> from the root of the repository</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Requirement to use arista.cvp collection</span>
-$ pip install -r requirements.txt
-
-<span class="c1"># Requirements to develop arista.cvp collection</span>
-$ pip install -r development/requirements-dev.txt
+<ul>
+<li>ansible <strong>2.9.2</strong> or later</li>
+<li>previous ansible version not supported as avd is shipped as an <a href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html">ansible collection</a></li>
+</ul>
+<h2 id="additional-python-libraries-required">Additional Python Libraries required<a class="headerlink" href="#additional-python-libraries-required" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://pypi.org/project/Jinja2/">Jinja2</a>  <code>2.10.3</code></li>
+<li><a href="https://pypi.org/project/netaddr/">netaddr</a> <code>0.7.19</code></li>
+<li><a href="https://pypi.org/project/requests/">requests</a> <code>2.22.0</code></li>
+<li><a href="https://pypi.org/project/treelib/">treelib</a> <code>1.5.5</code></li>
+<li><a href="https://github.com/aristanetworks/cvprac">cvprac</a> <code>1.0.4</code></li>
+</ul>
+<h3 id="python-requirements-installation">Python requirements installation<a class="headerlink" href="#python-requirements-installation" title="Permanent link">#</a></h3>
+<p>In a shell, run following command:</p>
+<div class="highlight"><pre><span></span><code>$ pip3 install -r development/requirements.txt
 </code></pre></div>
+
+<p><a href="https://github.com/aristanetworks/ansible-avd/blob/devel/development/requirements.txt"><code>requirements.txt</code></a> has the following content:</p>
+<div class="highlight"><pre><span></span><code>ansible==2.9.6
+netaddr==0.7.19
+Jinja2==2.10.3
+requests==2.22.0
+treelib==1.5.5
+cvprac==1.0.4
+</code></pre></div>
+
+<blockquote>
+<p>Depending of your operating system settings, <code>pip3</code> might be replaced by <code>pip</code>.</p>
+</blockquote>
+<h2 id="ansible-runner-requirements">Ansible runner requirements<a class="headerlink" href="#ansible-runner-requirements" title="Permanent link">#</a></h2>
+<p>A optional docker container is available with all the requirements already installed. To use this container, Docker must be installed on your ansible runner.</p>
+<p>To install Docker on your system, you can refer to the following page: <a href="https://docs.docker.com/engine/installation/">Docker installation step by step</a></p>
+<p>Or if you prefer you can run this oneLiner installation script:</p>
+<div class="highlight"><pre><span></span><code>$ curl -fsSL get.docker.com <span class="p">|</span> sh
+</code></pre></div>
+
+<p>In addition, docker-compose should be considered to run a stack of containers: <a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
                 
               
               
@@ -684,14 +814,28 @@ $ pip install -r development/requirements-dev.txt
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
+          <a href="../../getting-started/" title="Getting Started" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Getting Started
+              </div>
+            </div>
+          </a>
         
-          <a href="../setup-docker/" title="Use docker environment" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+        
+          <a href="../setup-environement/" title="Configure your local environment" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Use docker environment
+                Configure your local environment
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
