@@ -19,7 +19,7 @@
     
     
       
-        <title>Docker & Development - Arista CVP collection</title>
+        <title>Docker & Development environment - Arista CVP collection</title>
       
     
     
@@ -82,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Docker & Development
+              Docker & Development environment
             
           </span>
         </div>
@@ -204,12 +204,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Installation
@@ -279,100 +277,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Docker & Development
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Docker & Development" class="md-nav__link md-nav__link--active">
-      Docker & Development
+  <li class="md-nav__item">
+    <a href="../development/" title="Development tips & tricks" class="md-nav__link">
+      Development tips & tricks
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#step-by-step-installation-process" class="md-nav__link">
-    Step by step installation process
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#one-liner-installation" class="md-nav__link">
-    One liner installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#build-local-environment" class="md-nav__link">
-    Build local environment
-  </a>
-  
-    <nav class="md-nav" aria-label="Build local environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-container-for-ansible-testing-and-development" class="md-nav__link">
-    Docker Container for Ansible Testing and Development
-  </a>
-  
-    <nav class="md-nav" aria-label="Docker Container for Ansible Testing and Development">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#development-containers" class="md-nav__link">
-    Development containers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#container-commands" class="md-nav__link">
-    Container commands
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -770,14 +679,14 @@ make run
 </code></pre></div>
 
 <h2 id="one-liner-installation">One liner installation<a class="headerlink" href="#one-liner-installation" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/aristanetworks/ansible-cvp/blob/devel/development/install.sh">One liner script</a> to setup a development environment. it does following actions:</p>
+<p><a href="https://github.com/arista-netdevops-community/avd-install/blob/master/install.sh">One liner script</a> to setup a development environment. it does following actions:</p>
 <ul>
 <li>Create local folder for development</li>
 <li>Instantiate a local git repository (no remote)</li>
 <li>Clone AVD and CVP collections</li>
 <li>Deploy Makefile</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/aristanetworks/ansible-cvp/devel/development/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code>$ sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://get.avd.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 
 <h2 id="build-local-environment">Build local environment<a class="headerlink" href="#build-local-environment" title="Permanent link">#</a></h2>
@@ -792,7 +701,7 @@ The container will mount the current working directory, so you can work with you
 <li><a href="https://github.com/titom73/docker-mkdocs">MKDOCS</a> for documentation update: Run MKDOCS in a container and expose port <code>8000</code> to test and validate markdown rendering for AVD site.</li>
 </ul>
 <h4 id="container-commands">Container commands<a class="headerlink" href="#container-commands" title="Permanent link">#</a></h4>
-<p>In this folder you have a <a href="./Makefile"><code>Makefile</code></a> providing a list of commands to start a development environment:</p>
+<p>In this folder you have a <code>Makefile</code> providing a list of commands to start a development environment:</p>
 <ul>
 <li><code>run</code>: Start a shell within a container and local folder mounted in <code>/projects</code></li>
 <li><code>dev-start</code>: Start a stack of containers based on docker-compose: 1 container for ansible playbooks and 1 container for mkdocs</li>
@@ -854,41 +763,6 @@ Removing development_webdoc_1  ... <span class="k">done</span>
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../setup-galaxy/" title="Installation using ansible-galaxy" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Installation using ansible-galaxy
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../../../roles/dhcp_configuration/" title="DHCP Configuration role" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                DHCP Configuration role
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

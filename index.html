@@ -370,8 +370,8 @@
 
 
   <li class="md-nav__item">
-    <a href="docs/installation/setup-docker/" title="Docker & Development" class="md-nav__link">
-      Docker & Development
+    <a href="docs/installation/development/" title="Development tips & tricks" class="md-nav__link">
+      Development tips & tricks
     </a>
   </li>
 
@@ -759,9 +759,10 @@
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <p><strong>Arista CloudVision:</strong></p>
 <ul>
-<li><strong>2018</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>1.0.0</code></a></li>
-<li><strong>2019</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>1.0.0</code></a></li>
-<li><strong>2020</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.1.0"><code>1.1.0</code></a></li>
+<li><strong>CVP 2018.x.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>ansible-cvp 1.0.0</code></a></li>
+<li><strong>CVP 2019.x.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.0.0"><code>ansible-cvp 1.0.0</code></a></li>
+<li><strong>CVP 2020.1.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v1.1.0"><code>ansible-cvp 1.1.0</code></a></li>
+<li><strong>CVP 2020.2.x</strong>: starting version <a href="https://github.com/aristanetworks/ansible-cvp/releases/tag/v2.0.0"><code>ansible-cvp 2.0.0</code></a></li>
 </ul>
 <p><strong>Python:</strong></p>
 <ul>
@@ -787,21 +788,21 @@ Starting collection install process
 Installing <span class="s1">&#39;arista.cvp:1.1.0&#39;</span> to <span class="s1">&#39;~/.ansible/collections/ansible_collections/arista/cvp&#39;</span>
 </code></pre></div>
 
-<p>Complete installation process is available on <a href="https://cvp.avd.sh/installation/">repository website</a></p>
+<p>Complete installation process is available on <a href="https://cvp.avd.sh/docs/installation/requirements/">repository website</a></p>
 <h2 id="modules-overview">Modules overview<a class="headerlink" href="#modules-overview" title="Permanent link">#</a></h2>
 <p>This repository provides content for Ansible&rsquo;s collection <strong>arista.cvp</strong> with following content:</p>
 <p><strong>List of available modules:</strong></p>
 <ul>
-<li><a href="http://cvp.avd.sh/docs/modules/cv_facts.rst/"><strong>arista.cvp.cv_facts</strong></a> - Collect CVP facts from server like list of containers, devices, configlet and tasks.</li>
-<li><a href="http://cvp.avd.sh/docs/modules/cv_configlet.md"><strong>arista.cvp.cv_configlet</strong></a> -  Manage configlet configured on CVP.</li>
-<li><a href="http://cvp.avd.sh/docs/modules/cv_container.md"><strong>arista.cvp.cv_container</strong></a> -  Manage container topology and attach configlet and devices to containers.</li>
-<li><a href="http://cvp.avd.sh/docs/modules/cv_device.md"><strong>arista.cvp.cv_device</strong></a> - Manage devices configured on CVP</li>
-<li><a href="http://cvp.avd.sh/docs/modules/cv_task.md"><strong>arista.cvp.cv_task</strong></a> - Run tasks created on CVP.</li>
+<li><a href="https://cvp.avd.sh/docs/modules/cv_facts.rst/"><strong>arista.cvp.cv_facts</strong></a> - Collect CVP facts from server like list of containers, devices, configlet and tasks.</li>
+<li><a href="https://cvp.avd.sh/docs/modules/cv_configlet.rst/"><strong>arista.cvp.cv_configlet</strong></a> -  Manage configlet configured on CVP.</li>
+<li><a href="https://cvp.avd.sh/docs/modules/cv_container.rst/"><strong>arista.cvp.cv_container</strong></a> -  Manage container topology and attach configlet and devices to containers.</li>
+<li><a href="https://cvp.avd.sh/docs/modules/cv_device.rst/"><strong>arista.cvp.cv_device</strong></a> - Manage devices configured on CVP</li>
+<li><a href="https://cvp.avd.sh/docs/modules/cv_task.rst/"><strong>arista.cvp.cv_task</strong></a> - Run tasks created on CVP.</li>
 </ul>
 <p><strong>List of available roles:</strong></p>
 <ul>
-<li><a href="http://cvp.avd.sh/roles/dhcp_configuration/"><strong>arista.cvp.dhcp_configuration</strong></a> - Configure DHCPD service on a Cloudvision server or any dhcpd service.</li>
-<li><a href="http://cvp.avd.sh/roles/configlets_sync/"><strong>arista.cvp.configlet_sync</strong></a> - Synchronize configlets between multiple Cloudvision servers.</li>
+<li><a href="https://cvp.avd.sh/roles/dhcp_configuration/"><strong>arista.cvp.dhcp_configuration</strong></a> - Configure DHCPD service on a Cloudvision server or any dhcpd service.</li>
+<li><a href="https://cvp.avd.sh/roles/configlets_sync/"><strong>arista.cvp.configlet_sync</strong></a> - Synchronize configlets between multiple Cloudvision servers.</li>
 </ul>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
 <p>This example outlines how to use <code>arista.cvp</code> to create a containers topology on Arista CloudVision.</p>
@@ -865,7 +866,7 @@ Installing <span class="s1">&#39;arista.cvp:1.1.0&#39;</span> to <span class="s1
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h2>
 <p>Contributing pull requests are gladly welcomed for this repository. If you are planning a big change, please start a discussion first to make sure we&rsquo;ll be able to merge it.</p>
 <p>You can also open an <a href="https://github.com/aristanetworks/ansible-cvp/issues">issue</a> to report any problem or to submit enhancement.</p>
-<p>A more complete <a href="https://github.com/aristanetworks/ansible-cvp/contributing.md">guide for contribution</a> is available in the repository</p>
+<p>A more complete <a href="https://www.avd.sh/docs/contributing/">guide for contribution</a> is available in the repository</p>
                 
               
               
