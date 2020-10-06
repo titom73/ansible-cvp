@@ -19,7 +19,7 @@
     
     
       
-        <title>cv\_facts\_v1 - Arista CVP collection</title>
+        <title>Get Facts - Arista CVP collection</title>
       
     
     
@@ -54,7 +54,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cv_facts_v1" class="md-skip">
+        <a href="#get-facts-from-cloudvision" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              cv\_facts\_v1
+              Get Facts
             
           </span>
         </div>
@@ -348,10 +348,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       How-To
@@ -375,7 +377,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../how-to/cvp-authentication/" title="Configure Cloudvision Authentication" class="md-nav__link">
+    <a href="../cvp-authentication/" title="Configure Cloudvision Authentication" class="md-nav__link">
       Configure Cloudvision Authentication
     </a>
   </li>
@@ -385,11 +387,87 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../how-to/cv_facts/" title="Get Facts" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Get Facts
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Get Facts" class="md-nav__link md-nav__link--active">
       Get Facts
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#playbook-example" class="md-nav__link">
+    Playbook example
+  </a>
+  
+    <nav class="md-nav" aria-label="Playbook example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-playbook" class="md-nav__link">
+    Standard playbook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#only-collect-a-set-of-facts" class="md-nav__link">
+    Only collect a set of facts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect-running-configuration-of-devices" class="md-nav__link">
+    Collect running-configuration of devices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-output" class="md-nav__link">
+    Module output
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -399,7 +477,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../how-to/cv_configlet/" title="Manage configlets" class="md-nav__link">
+    <a href="../cv_configlet/" title="Manage configlets" class="md-nav__link">
       Manage configlets
     </a>
   </li>
@@ -411,7 +489,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../how-to/cv_container/" title="Manage containers" class="md-nav__link">
+    <a href="../cv_container/" title="Manage containers" class="md-nav__link">
       Manage containers
     </a>
   </li>
@@ -423,7 +501,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../how-to/cv_device/" title="Manage devices" class="md-nav__link">
+    <a href="../cv_device/" title="Manage devices" class="md-nav__link">
       Manage devices
     </a>
   </li>
@@ -531,7 +609,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cv_facts.rst/" title="Module cv_facts" class="md-nav__link">
+    <a href="../../modules/cv_facts.rst/" title="Module cv_facts" class="md-nav__link">
       Module cv_facts
     </a>
   </li>
@@ -543,7 +621,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cv_configlet.rst/" title="Module cv_configlet" class="md-nav__link">
+    <a href="../../modules/cv_configlet.rst/" title="Module cv_configlet" class="md-nav__link">
       Module cv_configlet
     </a>
   </li>
@@ -555,7 +633,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cv_container.rst/" title="Module cv_container" class="md-nav__link">
+    <a href="../../modules/cv_container.rst/" title="Module cv_container" class="md-nav__link">
       Module cv_container
     </a>
   </li>
@@ -567,7 +645,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cv_device.rst/" title="Module cv_device" class="md-nav__link">
+    <a href="../../modules/cv_device.rst/" title="Module cv_device" class="md-nav__link">
       Module cv_device
     </a>
   </li>
@@ -579,7 +657,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cv_task.rst/" title="Module cv_tasks" class="md-nav__link">
+    <a href="../../modules/cv_task.rst/" title="Module cv_tasks" class="md-nav__link">
       Module cv_tasks
     </a>
   </li>
@@ -736,43 +814,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#synopsis" class="md-nav__link">
-    Synopsis
+  <a href="#playbook-example" class="md-nav__link">
+    Playbook example
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#module-specific-options" class="md-nav__link">
-    Module-specific Options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples:
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples:">
+    <nav class="md-nav" aria-label="Playbook example">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#author" class="md-nav__link">
-    Author
+  <a href="#standard-playbook" class="md-nav__link">
+    Standard playbook
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#status" class="md-nav__link">
-    Status
+  <a href="#only-collect-a-set-of-facts" class="md-nav__link">
+    Only collect a set of facts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect-running-configuration-of-devices" class="md-nav__link">
+    Collect running-configuration of devices
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-output" class="md-nav__link">
+    Module output
+  </a>
   
 </li>
       
@@ -788,7 +866,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aristanetworks/ansible-cvp/edit/master/docs/docs/modules/cv_facts_v1.rst.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aristanetworks/ansible-cvp/edit/master/docs/docs/how-to/cv_facts.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -796,61 +874,80 @@
                   
                 
                 
-                <h1 id="cv_facts_v1">cv_facts_v1<a class="headerlink" href="#cv_facts_v1" title="Permanent link">#</a></h1>
-<p>Collect facts from CloudVision Portal.</p>
-<p>Module added in version 2.9</p>
-<div class="contents" data-local="" data-depth="2">
-
-</div>
-
-<h2 id="synopsis">Synopsis<a class="headerlink" href="#synopsis" title="Permanent link">#</a></h2>
-<p>Returns the list of devices, configlets, containers and images</p>
-<h2 id="module-specific-options">Module-specific Options<a class="headerlink" href="#module-specific-options" title="Permanent link">#</a></h2>
-<p>The following options may be specified for this module:</p>
-<table border=1 cellpadding=4>
-
-<tr>
-<th class="head">parameter</th>
-<th class="head">type</th>
-<th class="head">required</th>
-<th class="head">default</th>
-<th class="head">choices</th>
-<th class="head">comments</th>
-</tr>
-
-<tr>
-<td>gather_subset<br/><div style="font-size: small;"></div></td>
-<td>list</td>
-<td>no</td>
-<td>[&#x27;default&#x27;]</td>
-<td><ul><li>default</li><li>config</li></ul></td>
-<td>
-    <div>When supplied, this argument will restrict the facts collected</div>
-    <div>to a given subset.  Possible values for this argument include</div>
-    <div>all, hardware, config, and interfaces.  Can specify a list of</div>
-    <div>values to include a larger subset.  Values can also be used</div>
-    <div>with an initial <code><a class="reference internal" href="#!"><span class="std std-ref">!</span></a></code> to specify that a specific subset should</div>
-    <div>not be collected.</div>
-</td>
-</tr>
-
-</table>
-
-<p></br></p>
-<h2 id="examples">Examples:<a class="headerlink" href="#examples" title="Permanent link">#</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="x">---</span>
-<span class="x">    # Collect CVP Facts as init process</span>
-<span class="x">- name: &quot;Gather CVP facts from </span><span class="cp">{{</span><span class="nv">inventory_hostname</span><span class="cp">}}</span><span class="x">&quot;</span>
-<span class="x">  arista.cvp.cv_facts_v1:</span>
-<span class="x">  register: cvp_facts</span>
+                <h1 id="get-facts-from-cloudvision">Get facts from Cloudvision<a class="headerlink" href="#get-facts-from-cloudvision" title="Permanent link">#</a></h1>
+<p><code>cv_facts</code> collect Facts from CloudVision:</p>
+<ul>
+<li>CV version</li>
+<li>List of devices part of CV.
+    - Active EOS devices
+    - Inactive EOS devices
+    - 3<sup>rd</sup> part devices</li>
+<li>List of configlets</li>
+<li>List of containers</li>
+<li>List of tasks</li>
+</ul>
+<p>Full documentation available in <a href="../../modules/cv_facts.rst/">module section</a> and a lab is available in the following <a href="https://github.com/arista-netdevops-community/ansible-cvp-avd-toi">repository</a></p>
+<h2 id="playbook-example">Playbook example<a class="headerlink" href="#playbook-example" title="Permanent link">#</a></h2>
+<h3 id="standard-playbook">Standard playbook<a class="headerlink" href="#standard-playbook" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lab02 - cv_facts lab</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CloudVision</span>
+  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Gather</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
+      <span class="nt">arista.cvp.cv_facts</span><span class="p">:</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cv_facts</span>
 </code></pre></div>
 
+<h3 id="only-collect-a-set-of-facts">Only collect a set of facts<a class="headerlink" href="#only-collect-a-set-of-facts" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">tasks</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Gather</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
+    <span class="nt">arista.cvp.cv_facts</span><span class="p">:</span>
+      <span class="nt">facts</span><span class="p">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">configlets</span>
+</code></pre></div>
 
-<h3 id="author">Author<a class="headerlink" href="#author" title="Permanent link">#</a></h3>
-<p>- EMEA AS Team (@aristanetworks)</p>
-<h3 id="status">Status<a class="headerlink" href="#status" title="Permanent link">#</a></h3>
-<p>This module is flagged as <strong>preview</strong> which means that it is not
-guaranteed to have a backwards compatible interface.</p>
+<h3 id="collect-running-configuration-of-devices">Collect running-configuration of devices<a class="headerlink" href="#collect-running-configuration-of-devices" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">tasks</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Gather</span><span class="nv"> </span><span class="s">CVP</span><span class="nv"> </span><span class="s">facts</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
+    <span class="nt">arista.cvp.cv_facts</span><span class="p">:</span>
+      <span class="nt">facts</span><span class="p">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">devices</span>
+      <span class="nt">gather_subset</span><span class="p">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">config</span>
+</code></pre></div>
+
+<h2 id="module-output">Module output<a class="headerlink" href="#module-output" title="Permanent link">#</a></h2>
+<p>Output is JSON and can be saved or considered as input by other modules</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;ansible_facts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;cvp_info&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;appVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;Foster_Build_03&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2018.2.5&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;configlets&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ANSIBLE_TESTING_CONTAINER&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;isDefault&quot;</span><span class="p">:</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="s2">&quot;alias a57 show version&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;reconciled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;netElementCount&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="nt">&quot;editable&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;dateTimeInLongFormat&quot;</span><span class="p">:</span> <span class="mi">1574944821353</span><span class="p">,</span>
+                <span class="nt">&quot;isDraft&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;note&quot;</span><span class="p">:</span> <span class="s2">&quot;## Managed by Ansible ##&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;visible&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;containerCount&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;cvpadmin&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;configlet_3503_4572477104617871&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;sslConfig&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;veos01&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;veos03&quot;</span>
+                <span class="p">],</span>
+<span class="err">[...]</span>
+</code></pre></div>
                 
               
               
@@ -865,6 +962,41 @@ guaranteed to have a backwards compatible interface.</p>
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../cvp-authentication/" title="Configure Cloudvision Authentication" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Configure Cloudvision Authentication
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../cv_configlet/" title="Manage configlets" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Manage configlets
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
