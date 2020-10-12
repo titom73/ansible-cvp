@@ -936,14 +936,12 @@
 pip install treelib&gt;<span class="o">=</span><span class="m">1</span>.5.5
 pip install <span class="nv">cvprac</span><span class="o">==</span><span class="m">1</span>.0.4
 </code></pre></div>
-
 <p>Ansible galaxy hosts all stable version of this collection. Installation from ansible-galaxy is the most convenient approach for consuming <code>arista.cvp</code> content</p>
 <div class="highlight"><pre><span></span><code>$ ansible-galaxy collection install arista.cvp
 Process install dependency map
 Starting collection install process
 Installing <span class="s1">&#39;arista.cvp:1.1.0&#39;</span> to <span class="s1">&#39;~/.ansible/collections/ansible_collections/arista/cvp&#39;</span>
 </code></pre></div>
-
 <p>Complete installation process is available on <a href="https://cvp.avd.sh/docs/installation/requirements/">repository website</a></p>
 <h2 id="modules-overview">Modules overview<a class="headerlink" href="#modules-overview" title="Permanent link">#</a></h2>
 <p>This repository provides content for Ansible&rsquo;s collection <strong>arista.cvp</strong> with following content:</p>
@@ -999,7 +997,6 @@ Installing <span class="s1">&#39;arista.cvp:1.1.0&#39;</span> to <span class="s1
         <span class="nt">topology</span><span class="p">:</span> <span class="s">&#39;{{containers_provision}}&#39;</span>
         <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{cvp_facts.ansible_facts}}&#39;</span>
 </code></pre></div>
-
 <p>As modules of this collection are based on <a href="https://docs.ansible.com/ansible/latest/plugins/httpapi.html"><code>HTTPAPI</code> connection plugin</a>, authentication elements shall be declared using this plugin mechanism and are automatically shared with <code>arista.cvp.cv_*</code> modules.</p>
 <div class="highlight"><pre><span></span><code><span class="k">[development]</span>
 <span class="na">cvp_foster  ansible_host</span><span class="o">=</span> <span class="s">10.90.224.122 ansible_httpapi_host=10.90.224.122</span>
@@ -1013,7 +1010,6 @@ Installing <span class="s1">&#39;arista.cvp:1.1.0&#39;</span> to <span class="s1
 <span class="na">ansible_network_os</span><span class="o">=</span><span class="s">eos</span>
 <span class="na">ansible_httpapi_port</span><span class="o">=</span><span class="s">443</span>
 </code></pre></div>
-
 <p>As modules of this collection are based on <a href="https://docs.ansible.com/ansible/latest/plugins/connection/httpapi.html"><code>HTTPAPI</code> connection plugin</a>, authentication elements shall be declared using this plugin mechanism and are automatically shared with <code>arista.cvp.cv_*</code> modules.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h2>
 <p>Project is published under <a href="LICENSE">Apache License</a>.</p>

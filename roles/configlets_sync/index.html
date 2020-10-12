@@ -1010,7 +1010,6 @@
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">action</span><span class="p">:</span> <span class="nt">&lt; * action to run with the role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">init|sync|pull|push &gt;</span>
 </code></pre></div>
-
 <ul>
 <li><strong><code>init</code></strong>: Create initial local folder to save role outputs.</li>
 <li><strong><code>pull</code></strong>: Connects to each of the CVP instances, locates the configlets with <code>{{configlet_filter}}</code> in their name and updates local shared configlet data (config, last time changed, associated containers, associated devices) for each CVP instance.</li>
@@ -1021,7 +1020,6 @@
 <h4 id="role-variables_1">Role variables<a class="headerlink" href="#role-variables_1" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">configlet_filter</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">&lt; PREFIX of configlet to look for synchronization, Default is shared &gt;</span>
 </code></pre></div>
-
 <h4 id="local-folders-outputs">Local folders outputs<a class="headerlink" href="#local-folders-outputs" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">cvpsync_data</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">&lt; Local folder where configlets_sync save data. Default is generated_vars/ &gt;</span>
@@ -1029,7 +1027,6 @@
 <span class="nt">common_configlets_dir</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">&lt; Folder for common configlets. Default is {{cvpsync_data}}/common_configlets/ &gt;</span>
 <span class="nt">cvp_servers_dir</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">&lt; Folder for common configlets. Default is {{cvpsync_data}}/common_configlets/ &gt;</span>
 </code></pre></div>
-
 <ul>
 <li><strong><code>common_configlets_dir</code></strong>: contains details of the configlets that are to be synchronized across the CVP instances.</li>
 <li><strong><code>cvp_servers_dir</code></strong>:  contains details of which configlets are to be deployed to the CVP servers. This directory can be used by other PlayBooks to deploy configlets and provision devices.</li>
@@ -1059,7 +1056,6 @@
         <span class="nt">action</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pull</span>
         <span class="nt">configlet_filter</span><span class="p">:</span> <span class="s">&#39;generic&#39;</span>
 </code></pre></div>
-
 <p>Example playbook to to synchronize shared configlets with <code>generic</code> string in the name:</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Shared Configlets across CVP clusters</span>
@@ -1076,7 +1072,6 @@
         <span class="nt">configlet_filter</span><span class="p">:</span> <span class="s">&#39;generic&#39;</span>
         <span class="nt">action</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sync</span>
 </code></pre></div>
-
 <h3 id="inventory">Inventory<a class="headerlink" href="#inventory" title="Permanent link">#</a></h3>
 <p><code>{{inventory_name}}</code> for Cloudvision instances can be changed to match your own environement. Only group name <code>cvp_sync</code> must be the same in inventory and playbook.</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
@@ -1102,7 +1097,6 @@
         <span class="c1"># Optional - Configuration to get Virtual Env information</span>
         <span class="nt">ansible_python_interpreter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$(which python)</span>
 </code></pre></div>
-
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h2>
 <p>Project is published under <a href="../../../../../LICENSE">Apache 2.0 License</a></p>
                 

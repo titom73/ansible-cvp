@@ -972,7 +972,6 @@
       <span class="l l-Scalar l-Scalar-Plain">gateway</span><span class="p p-Indicator">:</span>        <span class="l l-Scalar l-Scalar-Plain">&lt; Gateway to use for the host. If not set, default value will be applied &gt;</span>
       <span class="l l-Scalar l-Scalar-Plain">nameservers</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">&lt; List of NS to use for the host. If not set, default value will be applied &gt;</span>
 </code></pre></div>
-
 <p>Variables with <code>*</code> are mandatory, others are optional and might be skipped if not needed in your setup.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">#</a></h2>
 <p>No dependency required for this role.</p>
@@ -1019,7 +1018,6 @@
       <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offline</span>
       <span class="nt">output_dirs</span><span class="p">:</span> <span class="s">&#39;{{inventory}}&#39;</span>
 </code></pre></div>
-
 <h3 id="configure-server-to-act-as-ztp-server">Configure Server to act as ZTP server<a class="headerlink" href="#configure-server-to-act-as-ztp-server" title="Permanent link">#</a></h3>
 <p>Below is a basic playbook running <code>arista.cvp.dhcp_configuration</code> role</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
@@ -1060,7 +1058,6 @@
     <span class="nt">import_role</span><span class="p">:</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp.dhcp_configuration</span>
 </code></pre></div>
-
 <p>Inventory is configured like below:</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">all</span><span class="p">:</span>
@@ -1074,7 +1071,6 @@
           <span class="nt">ansible_become_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">password1</span>
           <span class="nt">ansible_python_interpreter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$(which python3)</span>
 </code></pre></div>
-
 <p>If you are not using <strong>root</strong> user, configure <code>ansible_become_password</code> since role always use <code>become: true</code>.</p>
 <p>SSH connection is managed by <a href="http://www.paramiko.org/"><code>paramiko</code></a>.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h2>

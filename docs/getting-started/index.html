@@ -792,7 +792,6 @@
         <span class="nt">topology</span><span class="p">:</span> <span class="s">&#39;{{containers_provision}}&#39;</span>
         <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{cvp_facts.ansible_facts}}&#39;</span>
 </code></pre></div>
-
 <p>As modules of this collection are based on <a href="https://docs.ansible.com/ansible/latest/plugins/httpapi.html"><code>HTTPAPI</code> connection plugin</a>, authentication elements shall be declared using this plugin mechanism and are automatically shared with <code>arista.cvp.cv_*</code> modules.</p>
 <div class="highlight"><pre><span></span><code><span class="k">[development]</span>
 <span class="na">cvp_foster  ansible_host</span><span class="o">=</span> <span class="s">10.90.224.122 ansible_httpapi_host=10.90.224.122</span>
@@ -806,7 +805,6 @@
 <span class="na">ansible_network_os</span><span class="o">=</span><span class="s">eos</span>
 <span class="na">ansible_httpapi_port</span><span class="o">=</span><span class="s">443</span>
 </code></pre></div>
-
 <p>As modules of this collection are based on <a href="https://docs.ansible.com/ansible/latest/plugins/httpapi.html"><code>HTTPAPI</code> connection plugin</a>, authentication elements shall be declared using this plugin mechanism and are automatically shared with <code>arista.cvp.cv_*</code> modules.</p>
                 
               

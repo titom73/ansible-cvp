@@ -425,6 +425,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#how-to-validate-ssl-certificate" class="md-nav__link">
+    How to validate SSL certificate
+  </a>
+  
+    <nav class="md-nav" aria-label="How to validate SSL certificate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validate-ssl-cert-signed-by-public-ca" class="md-nav__link">
+    Validate SSL cert signed by public CA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-ssl-cert-signed-by-unknown-ca" class="md-nav__link">
+    Validate SSL cert signed by unknown CA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invalid-ssl-certification" class="md-nav__link">
+    Invalid SSL certification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -800,6 +834,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#how-to-validate-ssl-certificate" class="md-nav__link">
+    How to validate SSL certificate
+  </a>
+  
+    <nav class="md-nav" aria-label="How to validate SSL certificate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validate-ssl-cert-signed-by-public-ca" class="md-nav__link">
+    Validate SSL cert signed by public CA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-ssl-cert-signed-by-unknown-ca" class="md-nav__link">
+    Validate SSL cert signed by unknown CA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invalid-ssl-certification" class="md-nav__link">
+    Invalid SSL certification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -845,7 +913,6 @@
 <span class="nt">ansible_httpapi_use_ssl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">ansible_httpapi_validate_certs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
-
 <h2 id="cloudvision-as-a-service-authentication">Cloudvision as a Service authentication<a class="headerlink" href="#cloudvision-as-a-service-authentication" title="Permanent link">#</a></h2>
 <p>This authentication method leverage a <strong>user token</strong> to first get from your CVaaS instance. Then, instruct ansible to use token instead of username and password authentication</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default Ansible variables for authentication</span>
@@ -864,6 +931,53 @@
 <span class="nt">ansible_httpapi_host</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_host</span><span class="nv"> </span><span class="s">}}&#39;</span>
 <span class="nt">ansible_httpapi_use_ssl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">ansible_httpapi_validate_certs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+<h2 id="how-to-validate-ssl-certificate">How to validate SSL certificate<a class="headerlink" href="#how-to-validate-ssl-certificate" title="Permanent link">#</a></h2>
+<h3 id="validate-ssl-cert-signed-by-public-ca">Validate SSL cert signed by public CA<a class="headerlink" href="#validate-ssl-cert-signed-by-public-ca" title="Permanent link">#</a></h3>
+<p>Starting version <code>2.1.1</code>, <code>arista.cvp</code> collection supports mechanism to validate SSL certificate. To configure ansible to validate SSL certificate provided by your CV instance, you must update httpapi information like this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># HTTPAPI plugin configuration</span>
+<span class="nt">ansible_httpapi_port</span><span class="p">:</span> <span class="s">&#39;{{ansible_port}}&#39;</span>
+<span class="nt">ansible_httpapi_host</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_host</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<span class="nt">ansible_httpapi_use_ssl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">ansible_httpapi_validate_certs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<h3 id="validate-ssl-cert-signed-by-unknown-ca">Validate SSL cert signed by unknown CA<a class="headerlink" href="#validate-ssl-cert-signed-by-unknown-ca" title="Permanent link">#</a></h3>
+<blockquote>
+<p>This mechanism works also with self-signed certificate</p>
+</blockquote>
+<p>Update httpapi as shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># HTTPAPI plugin configuration</span>
+<span class="nt">ansible_httpapi_port</span><span class="p">:</span> <span class="s">&#39;{{ansible_port}}&#39;</span>
+<span class="nt">ansible_httpapi_host</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_host</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<span class="nt">ansible_httpapi_use_ssl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">ansible_httpapi_validate_certs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p>And then, import your CA or server CRT file into database of your CA for Python</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get CVP SSL Cert (If not already provided by your CV admin)</span>
+$ <span class="nb">true</span> <span class="p">|</span> openssl s_client -connect &lt;YOUR-CV-IP&gt;:443 <span class="m">2</span>&gt;/dev/null <span class="p">|</span> openssl x509 &gt; cvp.crt
+
+<span class="c1"># Update Python DB for known CA</span>
+$ cat cvp.crt &gt;&gt; <span class="sb">`</span>python -m certifi<span class="sb">`</span>
+</code></pre></div>
+<blockquote>
+<p>Note it is per virtual environment configuration.</p>
+</blockquote>
+<h3 id="invalid-ssl-certification">Invalid SSL certification<a class="headerlink" href="#invalid-ssl-certification" title="Permanent link">#</a></h3>
+<p>If identity cannot be validated by ansible, playbook stops with following error message:</p>
+<div class="highlight"><pre><span></span><code>$ ansible-playbook playbooks/extract-facts.yml
+
+PLAY <span class="o">[</span>CV Facts<span class="o">]</span> ***************************************************************
+
+TASK <span class="o">[</span>Gather CVP facts from cv_server<span class="o">]</span> ****************************************
+Monday <span class="m">05</span> October <span class="m">2020</span>  <span class="m">21</span>:09:22 +0200 <span class="o">(</span><span class="m">0</span>:00:00.063<span class="o">)</span>       <span class="m">0</span>:00:00.063 ********
+Monday <span class="m">05</span> October <span class="m">2020</span>  <span class="m">21</span>:09:22 +0200 <span class="o">(</span><span class="m">0</span>:00:00.063<span class="o">)</span>       <span class="m">0</span>:00:00.063 ********
+fatal: <span class="o">[</span>cv_server<span class="o">]</span>: FAILED! <span class="o">=</span>&gt; <span class="nv">changed</span><span class="o">=</span><span class="nb">false</span>
+  msg: <span class="p">|</span><span class="m">2</span>-
+
+    x.x.x.x: HTTPSConnectionPool<span class="o">(</span><span class="nv">host</span><span class="o">=</span><span class="s1">&#39;x.x.x.x&#39;</span>, <span class="nv">port</span><span class="o">=</span><span class="m">443</span><span class="o">)</span>: Max retries <span class="se">\</span>
+        exceeded with url: /web/login/authenticate.do <span class="se">\</span>
+        <span class="o">(</span>Caused by SSLError<span class="o">(</span>SSLError<span class="o">(</span><span class="m">1</span>, <span class="s1">&#39;[SSL: CERTIFICATE_VERIFY_FAILED] \</span>
+<span class="s1">        certificate verify failed (_ssl.c:852)&#39;</span><span class="o">)</span>,<span class="o">))</span>
 </code></pre></div>
                 
               

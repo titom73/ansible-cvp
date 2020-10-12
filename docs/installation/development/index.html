@@ -955,7 +955,6 @@ For example, see the file/folder structure below.</p>
 <span class="p">|</span>   ├── &lt;YOUR OWN TESTING REPOSITORY&gt;
 │   ├── Makefile
 </code></pre></div>
-
 <h2 id="build-local-environment">Build local environment<a class="headerlink" href="#build-local-environment" title="Permanent link">#</a></h2>
 <p>Please refer to <a href="../setup-environement/">Setup environment page</a></p>
 <p>Once installed, use <code>dev-start</code> command to bring up all the required containers:</p>
@@ -1010,7 +1009,6 @@ Going to remove development_ansible_1, development_webdoc_1
 Removing development_ansible_1 ... <span class="k">done</span>
 Removing development_webdoc_1  ... <span class="k">done</span>
 </code></pre></div>
-
 <h2 id="development-tools">Development tools<a class="headerlink" href="#development-tools" title="Permanent link">#</a></h2>
 <h3 id="pre-commit-hook">Pre-commit hook<a class="headerlink" href="#pre-commit-hook" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/aristanetworks/ansible-avd/blob/devel/.pre-commit-config.yaml"><code>pre-commit</code></a> can run standard hooks on every commit to automatically point out issues in code such as missing semicolons, trailing whitespace, and debug statements. By pointing these issues out before code review, this allows a code reviewer to focus on the architecture of a change while not wasting time with trivial style nitpicks.</p>
@@ -1030,7 +1028,6 @@ Removing development_webdoc_1  ... <span class="k">done</span>
 <div class="highlight"><pre><span></span><code>$ pip install -r development/requirements-dev.txt
 ...
 </code></pre></div>
-
 <h4 id="run-pre-commit-manually">Run pre-commit manually<a class="headerlink" href="#run-pre-commit-manually" title="Permanent link">#</a></h4>
 <p>To run <code>pre-commit</code> manually before your commit, use this command:</p>
 <div class="highlight"><pre><span></span><code>pre-commit run
@@ -1049,7 +1046,6 @@ Check <span class="k">for</span> ansible-lint errors............................
 
 <span class="o">[</span>INFO<span class="o">]</span> Restored changes from /Users/xxx/.cache/pre-commit/patch1590742434.
 </code></pre></div>
-
 <p>Command will automatically detect changed files using git status and run tests according their type.</p>
 <blockquote>
 <p>This process is also implemented in project CI to ensure code quality and compliance with ansible development process.</p>
@@ -1059,7 +1055,6 @@ Check <span class="k">for</span> ansible-lint errors............................
 <div class="highlight"><pre><span></span><code>$ pre-commit install
 pre-commit installed at .git/hooks/pre-commit
 </code></pre></div>
-
 <p>To remove installation, use <code>uninstall</code> option.</p>
 <h3 id="check-404-links">Check 404 links<a class="headerlink" href="#check-404-links" title="Permanent link">#</a></h3>
 <p>To validate documentation, you should check for <em>not found</em> links in your local version of the documentation. This test requires to run mkdocs container as explained in <a href="../setup-environement/">installation documentation</a>.</p>
@@ -1075,7 +1070,6 @@ http://127.0.0.1:8001/docs/installation/development/
         <span class="m">404</span>     http://127.0.0.1:8001/docs/installation/development/setup-environement2.md
 make: *** <span class="o">[</span>check-cvp-404<span class="o">]</span> Error <span class="m">1</span>
 </code></pre></div>
-
 <blockquote>
 <p>This process is also implemented in project CI to protect documentation against dead links.</p>
 </blockquote>

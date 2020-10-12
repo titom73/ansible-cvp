@@ -963,14 +963,12 @@ git clone https://github.com/&lt;your-username&gt;/ansible-cvp
 <span class="c1"># Assign the original repo to a remote called &quot;upstream&quot;</span>
 git remote add upstream https://github.com/aristanetworks/ansible-cvp.git
 </code></pre></div>
-
 </li>
 <li>
 <p>If you cloned a while ago, get the latest changes from upstream:</p>
 <div class="highlight"><pre><span></span><code>git checkout &lt;dev-branch&gt;
 git pull upstream &lt;dev-branch&gt;
 </code></pre></div>
-
 </li>
 </ol>
 <blockquote>
@@ -982,7 +980,6 @@ git pull upstream &lt;dev-branch&gt;
    contain your feature, change, or fix:</p>
 <div class="highlight"><pre><span></span><code>git checkout -b &lt;topic-branch-name&gt;
 </code></pre></div>
-
 </li>
 <li>
 <p>Commit your changes in logical chunks. Please adhere to these <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">git commit
@@ -995,13 +992,11 @@ git pull upstream &lt;dev-branch&gt;
 <p>Locally merge (or rebase) the upstream development branch into your topic branch:</p>
 <div class="highlight"><pre><span></span><code>git pull <span class="o">[</span>--rebase<span class="o">]</span> upstream &lt;dev-branch&gt;
 </code></pre></div>
-
 </li>
 <li>
 <p>Push your topic branch up to your fork:</p>
 <div class="highlight"><pre><span></span><code>git push origin &lt;topic-branch-name&gt;
 </code></pre></div>
-
 </li>
 <li>
 <p><a href="https://github.com/aristanetworks/ansible-cvp/pulls">Open a Pull Request</a>

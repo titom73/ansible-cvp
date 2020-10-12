@@ -911,7 +911,6 @@ $ git clone https://github.com/aristanetworks/ansible-cvp.git
 <span class="c1"># Move to git folder</span>
 <span class="nb">cd</span> ansible-cvp
 </code></pre></div>
-
 <h3 id="update-your-ansiblecfg">Update your ansible.cfg<a class="headerlink" href="#update-your-ansiblecfg" title="Permanent link">#</a></h3>
 <p>In your project, update your <code>ansible.cfg</code> file to point <strong>collection_paths</strong> to your local version of ansible-cvp</p>
 <ul>
@@ -921,7 +920,6 @@ $ git clone https://github.com/aristanetworks/ansible-cvp.git
 $ <span class="nb">pwd</span>
 /path/to/ansible/avd/collection_repository
 </code></pre></div>
-
 <ul>
 <li>Configure your project to use AVD repository as source of collections:</li>
 </ul>
@@ -929,14 +927,12 @@ $ <span class="nb">pwd</span>
 $ vim ansible.cfg
 <span class="nv">collections_paths</span> <span class="o">=</span> /path/to/ansible/cvp/collection_repository
 </code></pre></div>
-
 <h2 id="build-install-collection-from-git">Build &amp; install collection from git<a class="headerlink" href="#build-install-collection-from-git" title="Permanent link">#</a></h2>
 <p>In this approach, an ansible collection package is built from current git version and installed locally.</p>
 <h3 id="clone-repository">Clone repository<a class="headerlink" href="#clone-repository" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>$ git clone https://github.com/aristanetworks/ansible-cvp.git
 $ <span class="nb">cd</span> ansible-avd
 </code></pre></div>
-
 <h3 id="build-and-install-collection">Build and install collection<a class="headerlink" href="#build-and-install-collection" title="Permanent link">#</a></h3>
 <p>This section should be used only to test collection packaging and to create an offline package to ship on your internal resources if required.</p>
 <div class="highlight"><pre><span></span><code>$ ansible-galaxy collection build --force ansible_collections/arista/avd

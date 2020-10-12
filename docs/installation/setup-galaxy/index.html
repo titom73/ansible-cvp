@@ -894,11 +894,9 @@
 <h3 id="latest-version">Latest version<a class="headerlink" href="#latest-version" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>$ ansible-galaxy collection install arista.avd
 </code></pre></div>
-
 <h3 id="install-specific-version">Install specific version<a class="headerlink" href="#install-specific-version" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>$ ansible-galaxy collection install arista.avd:<span class="o">==</span><span class="m">1</span>.0.2
 </code></pre></div>
-
 <p>You can specify multiple range identifiers which are split by ,. You can use the following range identifiers:</p>
 <ul>
 <li><code>*</code>: Any version, this is the default used when no range specified is set.</li>
@@ -918,7 +916,6 @@ $ ansible-galaxy collection install arista.cvp -p collections/
 $ vim ansible.cfg
 <span class="nv">collections_paths</span> <span class="o">=</span> <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/collections:~/.ansible/collections:/usr/share/ansible/collections
 </code></pre></div>
-
 <h3 id="upgrade-installed-avd-collection">Upgrade installed AVD collection<a class="headerlink" href="#upgrade-installed-avd-collection" title="Permanent link">#</a></h3>
 <p>You can use <code>-f</code> to force installation of a new version for any installed collection:</p>
 <div class="highlight"><pre><span></span><code>$ ansible-galaxy collection install -f arista.cvp
@@ -926,7 +923,6 @@ Process install dependency map
 Starting collection install process
 Installing <span class="s1">&#39;arista.cvp:1.0.2&#39;</span> to <span class="s1">&#39;/root/.ansible/collections/ansible_collections/arista/cvp&#39;</span>
 </code></pre></div>
-
 <blockquote>
 <p>Note: Ansible community is discussing option to implement specific triggers to support upgrade under <a href="https://github.com/ansible/ansible/issues/65699">issue #65699</a></p>
 </blockquote>
