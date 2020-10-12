@@ -949,8 +949,8 @@
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Configure</span><span class="nv"> </span><span class="s">devices</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{inventory_hostname}}&quot;</span>
   <span class="nt">arista.cvp.cv_device</span><span class="p">:</span>
     <span class="nt">devices</span><span class="p">:</span> <span class="s">&quot;{{CVP_DEVICES}}&quot;</span>
-    <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{CVP_FACTS.ansible_facts}}’</span>
-    <span class="s">device_filter:</span><span class="nv"> </span><span class="s">[&#39;</span><span class="l l-Scalar l-Scalar-Plain">TEAM’]</span>
+    <span class="nt">cvp_facts</span><span class="p">:</span> <span class="s">&#39;{{CVP_FACTS.ansible_facts}}&#39;</span>
+    <span class="nt">device_filter</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;TEAM&#39;</span><span class="p p-Indicator">]</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
   <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CVP_DEVICES_RESULTS</span>
 </code></pre></div>
