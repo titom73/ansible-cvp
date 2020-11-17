@@ -7,6 +7,11 @@
   include_vars: "debian.yml"
   when: ansible_distribution == "Debian" or ansible_distribution == 'Ubuntu'
 
+- name: 'Update package list cach on deb system'
+  apt:
+    update_cache: yes
+  when: ansible_distribution == "Debian" or ansible_distribution == 'Ubuntu'
+
 - name: Install packages
   become: true
   package:
