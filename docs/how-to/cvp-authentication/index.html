@@ -466,6 +466,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#configure-connection-timeout" class="md-nav__link">
+    Configure connection timeout
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure connection timeout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ansible-configuration-file" class="md-nav__link">
+    Ansible configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventory-variables" class="md-nav__link">
+    Inventory variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -936,6 +963,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#configure-connection-timeout" class="md-nav__link">
+    Configure connection timeout
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure connection timeout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ansible-configuration-file" class="md-nav__link">
+    Ansible configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventory-variables" class="md-nav__link">
+    Inventory variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1064,6 +1118,23 @@ fatal: <span class="o">[</span>cv_server<span class="o">]</span>: FAILED! <span 
         exceeded with url: /web/login/authenticate.do <span class="se">\</span>
         <span class="o">(</span>Caused by SSLError<span class="o">(</span>SSLError<span class="o">(</span><span class="m">1</span>, <span class="s1">&#39;[SSL: CERTIFICATE_VERIFY_FAILED] \</span>
 <span class="s1">        certificate verify failed (_ssl.c:852)&#39;</span><span class="o">)</span>,<span class="o">))</span>
+</code></pre></div>
+<h2 id="configure-connection-timeout">Configure connection timeout<a class="headerlink" href="#configure-connection-timeout" title="Permanent link">#</a></h2>
+<p>When used in large environment, API calls can take more than 30 seconds to run. It can be configured in ansible by leveraging either <code>ansible.cfg</code> file or variables.</p>
+<h3 id="ansible-configuration-file">Ansible configuration file<a class="headerlink" href="#ansible-configuration-file" title="Permanent link">#</a></h3>
+<p>Edit <code>ansible.cfg</code> file and add the following</p>
+<div class="highlight"><pre><span></span><code><span class="k">[persistent_conenction]</span>
+<span class="na">connection_timeout</span> <span class="o">=</span> <span class="s">120</span>
+<span class="na">command_timeout</span> <span class="o">=</span> <span class="s">120</span>
+</code></pre></div>
+<blockquote>
+<p>If also configured in variables, it will be overwrite.</p>
+</blockquote>
+<h3 id="inventory-variables">Inventory variables<a class="headerlink" href="#inventory-variables" title="Permanent link">#</a></h3>
+<p>Add in either inventory file, group_vars or host_vars following lines:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">ansible_connect_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="nt">ansible_command_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">90</span>
 </code></pre></div>
                 
               

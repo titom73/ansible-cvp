@@ -106,6 +106,7 @@ from ansible.module_utils.basic import AnsibleModule
 import ansible_collections.arista.cvp.plugins.module_utils.logger   # noqa # pylint: disable=unused-import
 import ansible_collections.arista.cvp.plugins.module_utils.tools_cv as tools_cv
 import ansible_collections.arista.cvp.plugins.module_utils.tools as tools
+import ansible_collections.arista.cvp.plugins.module_utils.schema as schema
 
 MODULE_LOGGER = logging.getLogger('arista.cvp.cv_configlet')
 MODULE_LOGGER.info('Start cv_configlet module execution')
@@ -235,7 +236,6 @@ def build_configlets_list(module):
                 {'data': {'name': str(ansible_configlet)},
                  'config': str(module.params['configlets'][ansible_configlet])}
             )
-    MODULE_LOGGER.info(' * build_configlets_list - configlet list is: %s', str(intend))
     return intend
 
 
@@ -668,6 +668,15 @@ def main():
         module.fail_json(
             msg='cvprac required for this module. Please install using pip install cvprac')
 
+    if not schema.HAS_JSONSCHEMA:
+        module.fail_json(
+            msg="jsonschema is required. Please install using pip install jsonschema")
+
+    if not schema.validate_cv_inputs(user_json=module.params['configlets'], schema=schema.SCHEMA_CV_CONFIGLET):
+        MODULE_LOGGER.error("Invalid configlet input : %s", str(module.params['configlets']))
+        module.fail_json(
+            msg='Configlet input data are not compliant with module.')
+
     result = dict(changed=False, data={})
     # messages = dict(issues=False)
     # Connect to CVP instance
@@ -676,8 +685,6 @@ def main():
 
     # Pass module params to configlet_action to act on configlet
     result = action_manager(module)
-
-    MODULE_LOGGER.info('result of cv_configlet is: %s', str(result))
 
     module.exit_json(**result)
 

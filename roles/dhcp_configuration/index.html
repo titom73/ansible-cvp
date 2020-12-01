@@ -1009,6 +1009,7 @@
     <span class="l l-Scalar l-Scalar-Plain">registration</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">&lt; * Default URL to get Script to register to CV or initial configuration &gt;</span>
     <span class="l l-Scalar l-Scalar-Plain">gateway</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">&lt; Gateway to use by default if not set per device &gt;</span>
     <span class="l l-Scalar l-Scalar-Plain">nameservers</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">&lt; List of default NS to use on a per host basis &gt;</span>
+    <span class="l l-Scalar l-Scalar-Plain">use_system_mac</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">&lt; true | false Configure DHCP for system-mac-address provided in show version (default false) &gt;</span>
   <span class="nt">general</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">&lt; Section to define subnets parameters &gt;</span>
     <span class="l l-Scalar l-Scalar-Plain">subnets</span><span class="p p-Indicator">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">network</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">&lt; * Subnet where DHCP will listen for request &gt;</span>
@@ -1070,7 +1071,7 @@
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp.dhcp_configuration</span>
     <span class="nt">vars</span><span class="p">:</span>
       <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">offline</span>
-      <span class="nt">output_dirs</span><span class="p">:</span> <span class="s">&#39;{{inventory}}&#39;</span>
+      <span class="nt">output_dir</span><span class="p">:</span> <span class="s">&#39;{{inventory}}&#39;</span>
 </code></pre></div>
 <h3 id="configure-server-to-act-as-ztp-server">Configure Server to act as ZTP server<a class="headerlink" href="#configure-server-to-act-as-ztp-server" title="Permanent link">#</a></h3>
 <p>Below is a basic playbook running <code>arista.cvp.dhcp_configuration</code> role</p>
